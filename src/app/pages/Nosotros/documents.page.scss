@@ -1,0 +1,196 @@
+// ion-toolbar {
+//     --background: var(--ion-color-app-light);
+//     ion-button{
+//         margin: 0;
+//         --background: transparent;
+//         font-family: 'semi-bold';
+
+//         ion-icon {
+//             margin-right: 5px;
+//         }
+//     }
+// }
+
+
+
+ion-menu-button {
+    --background: white;
+}
+ion-toolbar {
+    --background: linear-gradient(#009544, #8CC63F);
+}
+.sindispetrol {
+    --color: white !important; 
+}
+.main_content_div {
+    // padding: 16px;
+    .extra_header {
+        background: url('../../../assets/imgs/homeimg.png') no-repeat center center fixed;
+        padding: 1px;
+        position: relative;
+    }
+    .slides{
+        --bullet-background: rgb(31, 28, 28);
+        --bullet-background-active: green;
+    }
+    .video-responsive {
+        position: relative;
+        padding-bottom: 56.25%; /* 16/9 ratio */
+        padding-top: 30px; /* IE6 workaround*/
+        height: 0;
+        overflow: hidden;
+        }
+        
+        .video-responsive iframe,
+        .video-responsive object,
+        .video-responsive embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        }
+    
+    ion-slides{
+        margin: 15px;
+        border: 1px solid green;
+        border-radius: 8px;
+        box-shadow: 0px 3px 6px rgba(5, 156, 13, 0.5);
+    }
+    ion-label {
+        display: block;
+    }
+
+    img {
+        width: 230px;
+        display: block;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+
+    .bold_lbl {
+        font-family: 'bold';
+        text-align: center;
+        margin-bottom: 7px;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 0px 20px;
+    }
+    .small_lbl {
+        font-size: 14px;
+        text-align: center;
+        padding: 0px 20px;
+    }
+    .abs_div {
+        width: 100%;
+        position: absolute;
+        padding: 16px;
+        bottom: 20px;
+
+        ion-button {
+            width: 100%;
+        }
+    }
+    .ion-text-start{
+        font-size: 12px;
+        text-align: justify;
+        padding: 2px 20px;
+    }
+
+    
+    .title_lbl {
+        font-family: 'semi-bold';
+        color:#009544;
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    .flex_slider {
+        display: flex;
+        width: 100%;
+        overflow-y: scroll;
+        
+        .inner_slide {
+            display: flex;
+            flex-direction: column;
+            align-items: justify;
+            margin-right: 10px;
+
+            img {
+                width: 100px !important;
+                min-width: 100px;
+                margin-bottom: -5px;
+            }
+
+            ion-label {
+                margin-top: 1px;
+                margin-bottom: 10px;
+                font-size: 13px;
+                color: white;
+                display: block;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+.logo_flex {
+    align-items: center;
+    display: flex;
+    padding-right: 30px;
+    margin-right: 20%;
+    margin-top: 30px;
+
+    ion-icon {
+        align-items: center;
+        margin-right: 10%;
+        color: var(--ion-color-primary);
+        font-size: 30px;
+    }
+}
+
+.grid_box2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .box_div2 {
+        background-color:rgb(243, 243, 243);
+        box-shadow: 0px 3px 6px rgba(5, 156, 13, 0.5);
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 140px;
+        height: 70px;
+        margin: 5px;
+        border-radius: 10px;
+        font-size: 20px;
+
+        img {
+            width: 50px;
+        }
+
+        ion-label {
+            text-align: center;
+            font-family: 'semi-bold';
+            font-size: 15px;
+            color: var(--ion-color-primary);
+            margin-top: 10px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

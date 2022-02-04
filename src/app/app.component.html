@@ -1,0 +1,44 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" type="overlay">
+            <ion-content>
+                <div class="row header_section">
+                    <div class="user_image col-sm-3">
+                        <ion-img id="image" src="assets/imgs/Copia de sedes.png"> Sindispetrol</ion-img>
+
+                    </div>
+                    <!--
+                    <div class="col-sm-6" style="margin-left: 90px;">
+                        <ion-button class="sindispetrol ml-4" style="color:white; margin-left: 90px;" lot="end" size="small" fill="clear">
+                            Sindispetrol
+                        </ion-button>
+                    </div> -->
+
+                </div>
+
+                <ion-list id="inbox-list" class="ion-no-padding">
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+                            detail="false">
+                            <ion-label>{{p.title}}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                   <!--  <ion-menu-toggle auto-hide="false" (click)="logout()">
+                        <ion-item routerDirection="root" lines="none" detail="false">
+                            <ion-label> Salir </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle> -->
+                </ion-list>
+
+                <div class="logo_flex">
+                    <ion-icon name="logo-facebook" href="" ></ion-icon>
+                    <ion-icon name="logo-instagram" href=""></ion-icon>
+                    <ion-icon name="logo-twitter" href=""></ion-icon>
+                </div>
+
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+    <!-- <ion-router-outlet></ion-router-outlet> -->
+</ion-app>

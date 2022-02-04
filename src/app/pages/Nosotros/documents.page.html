@@ -1,0 +1,89 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-button class="sindispetrol" slot="end" size="small" fill="clear">
+            <ion-label  name=""></ion-label>
+            Sindispetrol
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main_content_div">
+        <div class="video-responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/C2BdoKYQZAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <br>
+        <ion-label class="bold_lbl">Nosotros</ion-label>
+        <ion-slides class="slides" pager="true" [options]="slideOpts">
+            <ion-slide>
+                <div class="ion-text-justify" style="padding: 15px;">
+          
+                Somos el Sindicato Nacional de Trabajadores de Empresas Operadoras, Contratistas, Subcontratistas de Bienes y Servicios y Actividades de la Industria del Petróleo, Petroquímica, Minera, Energética y Similares.  
+
+                Creada el 23 de diciembre de 2005 según resolución 00000001 del Ministerio de la Protección Social; con el apoyo de 42 trabajadores en la ciudad de Barrancabermeja y el liderazgo de sus fundadores: Berquiz Borja Ortoz, Victor Villareal y Ricaute Reina Alture, Con la asesoría jurídica del doctor Alfredo Castaño.
+                <br>
+                <br>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="ion-text-justify" style="padding: 14px;">Actualmente tenemos siete (7) subdirectivas constituidas en Barrancabermeja, Bucaramanga, Bogotá. Cicuco-Bolívar, Cupiagua – Casanare, Villavicencio – Meta y Occidente; con las cuales trabajamos en sinergia para desarrollar nuestros objetivos y garantizar la misión y visión de la organización sindical. 
+                    <br>A partir de nuestra creación, el compromiso ha sido por mantener y mejorar los derechos de los trabajadores, la existencia de las empresas y el desarrollo del país; buscando siempre la cohesión social a través del diálogo y la construcción conjunta de propuestas.
+                        
+                    
+                 </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="ion-text-justify" style="padding: 14px;">
+                
+                     <br>   
+                   <br> <img src="assets/imgs/bienvenidos.png"  class="ml-3">
+                </div>
+            </ion-slide>
+        </ion-slides>
+        
+    </div>  
+    <div class="logo_flex" style="padding-left: 90px; align-items: center;">
+        <ion-icon style="font-size: 30px;" name="logo-facebook"></ion-icon>
+        <ion-icon style="font-size: 30px;" name="logo-instagram"></ion-icon>
+        <ion-icon style="font-size: 30px;" name="logo-twitter"></ion-icon>
+    </div>
+<div class="ion-text-center" style="padding: 14px;">
+
+
+    <br>
+    <ion-label class="bold_lbl" style="font-size: 18px;"><strong>Recursos</strong></ion-label>
+    <div class="grid_box2 row">
+        
+            
+            <!-- <a style="text-decoration: none;" class="btn" href="http://sindispetrol.xyz:1337/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf"  download="NUEVOS ESTATUTOS INTERNOS DE SINDISPETROL.pdf"> -->
+                <!-- <div class="box_div2"> -->
+                    <ion-button class="mr-3 btn-sm col-sm-10" color="warning" href="https://sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf">Estatutos internos</ion-button>
+                    <!-- <ion-label style="font: bold;">Estatutos internos</ion-label> -->
+            
+                <!-- </div> -->
+            <!-- </a> -->
+            <!-- <a style="text-decoration: none;" class="btn " href="http://sindispetrol.xyz:1337/uploads/Convencion_colectiva_2018_2022_0fd7b3cffc.pdf"  download="Convención colectiva.pdf"> -->
+                <!-- <div class="box_div2"> -->
+                   <ion-button class="mr-3 btn-sm col-sm-10" color="warning" href="https://sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf">Conveción colectiva</ion-button>
+                    <!-- <ion-label style="font: bold;" >Conveción colectiva</ion-label> -->
+                <!-- </div> -->
+            <!-- </a> -->
+            
+    </div> 
+</div>
+
+
+    <div class="main_content_div" style="background-image: url('../../../assets/imgs/bkbtn.png'); background-repeat: no-repeat; width: 100%;">
+        <ion-label class="title_lbl">Junta Directiva</ion-label>
+        <div class="flex_slider mb-3">
+            <div *ngFor="let item of JuntaDirectiva" class="inner_slide">
+                <img src="{{item.url}}">
+                <ion-label> <strong>{{item.name}}</strong></ion-label>
+                <ion-label>{{item.cargo}}</ion-label>
+            </div>
+        </div>
+    </div>
+</ion-content>

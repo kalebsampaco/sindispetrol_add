@@ -1,0 +1,224 @@
+ion-content {
+    background: whitesmoke;
+}
+
+ion-menu-button {
+    --background: white;
+}
+ion-toolbar {
+    --background: linear-gradient(#009544, #8CC63F);
+}
+.sindispetrol {
+    --color: white !important; 
+}
+
+ion-slides{
+        margin: 15px;
+        border: 1px solid green;
+        border-radius: 8px;
+        box-shadow: 0px 3px 6px rgba(5, 156, 13, 0.5);
+    }
+
+    .slides{
+        --bullet-background: rgb(17, 13, 13);
+        --bullet-background-active: green;
+    }
+
+
+.main_content_div {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    
+    background-image: url("../../../assets/imgs/fondocopasst.png");
+    background-repeat: no-repeat;
+
+    .video-responsive {
+        position: relative;
+        padding-bottom: 56.25%; /* 16/9 ratio */
+        padding-top: 30px; /* IE6 workaround*/
+        height: 0;
+        overflow: hidden;
+        }
+        
+        .video-responsive iframe,
+        .video-responsive object,
+        .video-responsive embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        }
+        
+    .extra_header {
+        background: url('../../../assets/imgs/fondolaboral_1_2.png') no-repeat center center fixed;
+        padding: 1px;
+        position: relative;
+
+    
+
+        .flex_div {
+            display: flex;
+            align-items: center;
+
+            .logo_text {
+                font-size: 20px;
+                font-family: 'bold';
+        
+                span{
+                    font-family: 'bold';
+                    color: var(--ion-color-primary);
+                }
+            }
+            .small_text {
+                font-size: 14px;
+            }
+            img {
+                width: 200px;
+                margin-left: 16px;
+            }
+        }
+
+        ion-input {
+            box-shadow: 0pc 3px 6px rgba(0,0,0,0.2);
+            height: 50px;
+            --padding-start: 8px;
+            --padding-end: 16px;
+            border-radius: 25px;
+            background: white;
+            width: 80%;
+            position: absolute;
+            bottom: -25px;
+            font-family: 'medium';
+
+            ion-icon {
+                margin-left: 16px;
+                color: rgb(255, 255, 255);
+                font-size: 20px;
+            }
+        }
+    }
+
+    .content_div {
+        padding: 16px;
+        padding-top: 40px;
+        background-image: url("../../../assets/imgs/fondoform.png");
+        background-repeat: no-repeat;
+        background-color: whitesmoke;
+
+        .grid_box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .box_div {
+                background-color: white;
+                box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+                padding: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 140px;
+                height: 100px;
+                margin: 16px;
+                border-radius: 10px;
+                font-size: 10px;
+        
+                img {
+                    width: 50px;
+                }
+        
+                ion-label {
+                    text-align: center;
+                    font-family: 'semi-bold';
+                    font-size: 10px;
+                    color: var(--ion-color-primary);
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .formulario {
+            width: 100%;
+            border: green;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px rgba(121, 121, 121, 0.9);
+        }
+        .bold_lbl {
+            font-family: 'bold';
+            text-align: center;
+            margin: 7px;
+            text-transform: uppercase;
+            padding: 0px 20px;
+        }
+        
+        ion-slide{
+            margin: 15px;
+            border: 1px solid green;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px rgba(5, 156, 13, 0.5);
+        }
+        ion-label {
+            display: block;
+        }
+        .flex_slider {
+            display: flex;
+            width: 100%;
+            overflow-y: scroll;
+            
+            .inner_slide {
+                display: flex;
+                flex-direction: column;
+                align-items: justify;
+                margin-right: 10px;
+    
+                img {
+                    width: 100px !important;
+                    min-width: 100px;
+                    margin-bottom: -5px;
+                }
+    
+                ion-label {
+                    margin-top: 1px;
+                    margin-bottom: 10px;
+                    font-size: 13px;
+                    color: white;
+                    display: block;
+                    white-space: nowrap;
+                }
+            }
+        }
+        .title_lbl {
+            font-family: 'semi-bold';
+            color: white;
+            margin-bottom: 16px;
+            margin-top: 16px;
+        }
+
+        .flex_slider {
+            display: flex;
+            width: 100%;
+            overflow-y: scroll;
+
+            .inner_slide {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 10px;
+
+                img {
+                    width: 60px !important;
+                    min-width: 60px;
+                }
+
+                ion-label {
+                    margin-top: 7px;
+                    font-size: 13px;
+                    display: block;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }    
+}

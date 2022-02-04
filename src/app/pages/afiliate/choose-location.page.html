@@ -1,0 +1,103 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title style="padding: 0px; color: white; margin-left:5px">Afiliación</ion-title>
+        <ion-button class="sindispetrol" slot="end" size="small" fill="clear">
+            <ion-label  name=""></ion-label>
+            Sindispetrol
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<div class="extra_header_laboral">
+    <div>
+        <img src="assets/imgs/alifiate.png"  class="ml-3">
+    </div>
+
+</div>
+<ion-content>
+    <div class="main_content_div">
+
+        <form  (ngSubmit)="genrarPdf()">
+            <ion-label><strong style="font-family: auto; font-size: small;">Subdirectiva</strong>:</ion-label>
+            <ion-item class="formulario">
+
+                <select
+                    #selectSubdirectiva
+                    id="input"
+                    class="custom-select"
+                    id="subdirectiva"
+                    (change)="subDirectiva(selectSubdirectiva.value)"
+                >
+                    <option [ngValue]="null" selected>
+                    Selecciona una opción
+                    </option>
+                    <option
+                    *ngFor="let sub of subdirectivas"
+                    [ngValue]="sub?.cod"
+                    >
+                    {{ sub.name }}
+                    </option>
+                </select>
+            </ion-item> <br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Ciudad:</strong></ion-label>
+                <ion-input name="ciudad" [(ngModel)]="ciudad"></ion-input>
+            </ion-item><br>
+            <ion-label><strong style="font-family: auto; font-size: small;">Fecha de afiliación:</strong></ion-label>
+            <ion-item class="formulario">
+
+                <ion-datetime locale="co-CO" name="fecha" [(ngModel)]="fecha" displayFormat="MMM DD, YYYY"></ion-datetime>
+
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Nombre Completo:</strong></ion-label>
+                <ion-input name="nombre" [(ngModel)]="nombreCompleto"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Cédula:</strong></ion-label>
+                <ion-input name="cedula" [(ngModel)]="cedula"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Ciudad Cédula:</strong></ion-label>
+                <ion-input name="ciudad" [(ngModel)]="ciudadCedula"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Nombre de la empresa:</strong></ion-label>
+                <ion-input name="empresa" [(ngModel)]="nombreEmpresa"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Cargo:</strong></ion-label>
+                <ion-input name="cargo" [(ngModel)]="cargo"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Dirección:</strong></ion-label>
+                <ion-input name="direccion" [(ngModel)]="direccion"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Barrio:</strong></ion-label>
+                <ion-input name="barrio" [(ngModel)]="barrio"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Email:</strong></ion-label>
+                <ion-input name="email" [(ngModel)]="email"></ion-input>
+            </ion-item><br>
+            <ion-item class="formulario">
+                <ion-label><strong style="font-family: auto; font-size: small;">Celular:</strong></ion-label>
+                <ion-input name="celular" [(ngModel)]="celular"></ion-input>
+            </ion-item> <br>
+             <div class="signature-pad">
+                <div class="signature-pad--body">
+                    <canvas #sPad width="280" height="100" style="touch-action: none;"></canvas>
+                </div>
+
+            </div>
+         <ion-button  color="success" (click)="clear()">Borrar firma</ion-button>
+            <ion-button type="submit" color="success" >Enviar Afiliación firmada</ion-button>
+        </form>
+
+
+
+    </div>
+</ion-content>
