@@ -7,29 +7,29 @@
         <ion-title style="padding: 0px;">Subdirectiva Meta</ion-title>
     </ion-toolbar>
     </ion-toolbar>
-</ion-header> 
+</ion-header>
 
 <ion-content>
     <div class="main_content_div">
         <div class="extra_header_laboral">
             <div>
-                <img src="assets/imgs/smeta.png"  class="ml-3">
+                <img [src]="image"  class="ml-3">
             </div>
-            
+
             <div>
                 <br>
                 <br>
                 <p class="encabezado" style="text-align: justify;">La Subdirectiva Meta de Sindispetrol nace un 4 de diciembre del 2014 bajo la iniciativa del Ingeniero Joseph Pinzon con el apoyo de compañeros aliados y directos de Ecopetrol S.A, que vieron la necesidad de realizar acompañamiento sindical a la población trabajadora de los llanos orientales</p>
                 <br>
                 <p class="encabezado" style="text-align: justify;"> Hoy día Sindispetrol Meta ¡¡Sigue velando por los derechos de los trabajadores!! fundamentados en los tres principios más importantes de la organización que son la <strong>igualdad, democracia y unidad.</strong></p>
-            </div> 
+            </div>
             <br>
             <br>
-            
+
             <div class="ion-text-justify" style="padding: 14px;">
                 <ion-label class="bold_lbl">Conócenos</ion-label>
                 <div class="grid_box2">
-                   <a href="#" (click)="abrirUrl()">
+                   <a class="btn" (click)="abrirUrl()">
                          <div class="box_div2">
                             <ion-label style="font: bold;"   >Página web</ion-label>
                         </div>
@@ -37,7 +37,7 @@
                     <!-- <div class="box_div2">
                         <ion-label style="font: bold;">Conveción colectiva</ion-label>
                     </div> -->
-                </div> 
+                </div>
             </div>
             <br>
             <br>

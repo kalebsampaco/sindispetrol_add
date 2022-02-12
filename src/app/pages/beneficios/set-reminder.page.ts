@@ -13,6 +13,27 @@ export class SetReminderPage implements OnInit {
   ngOnInit() {
   }
 
+  webMutual() {
+
+    window.open('https://www.consolidaridad.com.co')
+  }
+
+  linkEducacion() {
+    window.open('')
+  }
+
+  linkRecreacion(){
+    window.open('')
+  }
+
+  linkVivienda(){
+    window.open('')
+  }
+
+  linkSalud(){
+    window.open('')
+  }
+
   addSlot() {
       this.timeSlots.length = this.timeSlots.length + 1;
   }

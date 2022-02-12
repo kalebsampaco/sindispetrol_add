@@ -7,20 +7,20 @@
         <ion-title style="padding: 0px;">Subdirectiva Bogotá</ion-title>
     </ion-toolbar>
     </ion-toolbar>
-</ion-header> 
+</ion-header>
 
 <ion-content>
     <div class="main_content_div">
         <div class="extra_header_laboral">
             <div>
-                <img src="assets/imgs/Bogota.png" class="ml-3">
+                <img [src]="image" class="ml-3">
             </div>
-            
+
             <div>
                 <br>
                 <br>
                 <p class="encabezado" style="text-align: justify;">Bienvenidos a la subdirectiva nacional Sindispetrol Bogotá, juntos trabajamos por un mismo propósito.</p>
-            </div> 
+            </div>
             <br>
             <br>
             <br>
@@ -28,7 +28,7 @@
             <div class="ion-text-justify" style="padding: 14px;">
                 <ion-label class="bold_lbl">Conócenos</ion-label>
                 <div class="grid_box2">
-                    <a href="#" (click)="abrirUrl()">
+                    <a class="btn" (click)="abrirUrl()">
                          <div class="box_div2">
                             <ion-label style="font: bold;"   >Página web</ion-label>
                         </div>
@@ -36,7 +36,7 @@
                     <!-- <div class="box_div2">
                         <ion-label style="font: bold;">Conveción colectiva</ion-label>
                     </div> -->
-                </div> 
+                </div>
             </div>
             <br>
             <br>

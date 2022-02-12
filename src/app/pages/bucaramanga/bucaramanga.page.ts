@@ -14,10 +14,10 @@ export class BucaramangaPage implements OnInit {
   image:any;
   constructor(private navCtrl: NavController, private gblService:GlobalServiceService,) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.gblService.getService('bucaramangas').subscribe(
-      (res: any) => {
-          
+      async (res: any) => {
+
           console.log(res)
           this.url = 'http://'+res[0].url
           this.image = 'https://sindispetrol.xyz'+res[0].imagen[0].url
@@ -25,12 +25,7 @@ export class BucaramangaPage implements OnInit {
           console.log(this.image)
       },
       (error: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ha ocurrido un error.',
-          timer: 2000,
-        });
+
         console.log('error enviando tomandos los datos', error);
       }
     );

@@ -20,18 +20,21 @@ export class BarrancabermejaPage implements OnInit {
       (res: any) => {
 
           console.log(res)
+          this.url = 'http://'+res[0].url
+          this.image = 'https://sindispetrol.xyz'+res[0].imagen.url
+          console.log(this.url)
+          console.log(this.image)
 
       },
       (error: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ha ocurrido un error.',
-          timer: 2000,
-        });
+
         console.log('error enviando tomandos los datos', error);
       }
     );
+  }
+
+  paginaWeb(){
+    window.open(`${this.url}`)
   }
 
     toastFireError(res: any) {

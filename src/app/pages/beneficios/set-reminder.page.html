@@ -9,7 +9,7 @@
             Sindispetrol
         </ion-button>
     </ion-toolbar>
-</ion-header> 
+</ion-header>
 
 <ion-content>
     <div class="main_content_div">
@@ -17,12 +17,12 @@
             <div>
                 <img src="assets/imgs/Beneficios2.png"  class="ml-3">
             </div>
-            
+
             <div>
                 <br>
                 <br>
                 <p class="encabezado" style="text-align: justify;">Conoce los beneficios que Sindispetrol tiene para cada uno de nuestros asociados</p>
-            </div> 
+            </div>
             <ion-slides class="slides" pager="true" [options]="">
                 <ion-slide>
                     <div class="ion-text-justify" style="padding: 15px;">
@@ -31,12 +31,12 @@
                         <img src="assets/imgs/Mutual.png"  class="ml-3">
 
                         <div class="grid_box2">
-                            
-                                <ion-button color="warning" href="https://www.consolidaridad.com.co">Página web</ion-button>
+
+                                <ion-button color="warning" (click)="webMutual()">Página web</ion-button>
                                 <!-- <ion-label  style="font: bold;"  HREF="https://www.consolidaridad.com.co"  >Página web</ion-label> -->
                                 <!-- <A HREF="https://www.consolidaridad.com.co"> Página web </A> -->
-                            
-                        </div> 
+
+                        </div>
                         <br>
                     </div>
                 </ion-slide>
@@ -46,11 +46,11 @@
                         <img src="assets/imgs/educación.png"  class="ml-3">
 
                         <div class="grid_box2">
-                                <ion-button color="warning" href="">Contáctanos</ion-button>
+                                <ion-button color="warning" (click)="linkEducacion()" >Contáctanos</ion-button>
                                 <!-- <ion-label  style="font: bold;"  HREF="https://www.consolidaridad.com.co"  >Página web</ion-label> -->
                                 <!-- <A HREF="https://www.consolidaridad.com.co"> Página web </A> -->
                             </div>
-                        <br>                        
+                        <br>
                      </div>
                 </ion-slide>
                 <ion-slide>
@@ -59,11 +59,11 @@
                         <img src="assets/imgs/recreación.png"  class="ml-3">
 
                         <div class="grid_box2">
-                                <ion-button color="warning" href="">Contáctanos</ion-button>
+                                <ion-button color="warning" (click)="linkRecreacion()" >Contáctanos</ion-button>
                                 <!-- <ion-label  style="font: bold;"  HREF="https://www.consolidaridad.com.co"  >Página web</ion-label> -->
                                 <!-- <A HREF="https://www.consolidaridad.com.co"> Página web </A> -->
                             </div>
-                        <br>   
+                        <br>
                     </div>
                 </ion-slide>
                 <ion-slide>
@@ -72,11 +72,11 @@
                         <img src="assets/imgs/vivienda.png"  class="ml-3">
 
                         <div class="grid_box2">
-                                <ion-button color="warning" href="">Contáctanos</ion-button>
+                                <ion-button color="warning" (click)="linkVivienda()">Contáctanos</ion-button>
                                 <!-- <a type="" style="font: bold;"  HREF="https://www.consolidaridad.com.co"  >Página web</a> -->
                                 <!-- <A HREF="https://www.consolidaridad.com.co"> Página web </A> -->
-                            
-                        </div> 
+
+                        </div>
                         <br>
                     </div>
                 </ion-slide>
@@ -86,12 +86,12 @@
                         <img src="assets/imgs/salud.png"  class="ml-3">
 
                         <div class="grid_box2">
-                                <ion-button color="warning" href="">Contáctanos</ion-button>
+                                <ion-button color="warning" (click)="linkSalud()">Contáctanos</ion-button>
                                 <!-- <ion-label  style="font: bold;"  HREF="https://www.consolidaridad.com.co"  >Página web</ion-label> -->
                                 <!-- <A HREF="https://www.consolidaridad.com.co"> Página web </A> -->
-                           
-                        </div> 
-                        <br>                        
+
+                        </div>
+                        <br>
                     </div>
                 </ion-slide>
             </ion-slides>

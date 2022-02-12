@@ -14,10 +14,10 @@ export class CipiaguaPage implements OnInit {
   image:any;
   constructor(private navCtrl: NavController, private gblService:GlobalServiceService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.gblService.getService('cipiaguas').subscribe(
       (res: any) => {
-          
+
           console.log(res)
           this.url = 'http://'+res[0].url
           this.image = 'https://sindispetrol.xyz'+res[0].imagen[0].url

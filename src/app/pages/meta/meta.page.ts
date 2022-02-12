@@ -14,7 +14,7 @@ export class MetaPage implements OnInit {
   image:any;
   constructor(private navCtrl: NavController, private gblService:GlobalServiceService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.gblService.getService('metas').subscribe(
       (res: any) => {
 
@@ -25,13 +25,8 @@ export class MetaPage implements OnInit {
           console.log(this.image)
       },
       (error: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ha ocurrido un error.',
-          timer: 2000,
-        });
-        console.log('error enviando tomandos los datos', error);
+
+        console.log('error consultando meta', error);
       }
     );
   }
