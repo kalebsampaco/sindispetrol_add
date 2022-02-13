@@ -15,23 +15,23 @@ export class SetReminderPage implements OnInit {
 
   webMutual() {
 
-    window.open('https://www.consolidaridad.com.co')
+    window.open('https://www.consolidaridad.com.co/consultas/autenticar')
   }
 
   linkEducacion() {
-    window.open('')
+    window.open('juntadirectiva.sindispetrol@gmail.com')
   }
 
   linkRecreacion(){
-    window.open('')
+    window.open('juntadirectiva.sindispetrol@gmail.com')
   }
 
   linkVivienda(){
-    window.open('')
+    window.open('juntadirectiva.sindispetrol@gmail.com')
   }
 
   linkSalud(){
-    window.open('')
+    window.open('juntadirectiva.sindispetrol@gmail.com')
   }
 
   addSlot() {

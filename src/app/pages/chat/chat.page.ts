@@ -41,8 +41,8 @@ export class ChatPage implements OnInit {
       cod : 7,
       name : 'Barrancabermeja'
     },
-    
-    
+
+
   ];
 
   consultasLaborales = [
@@ -80,60 +80,56 @@ export class ChatPage implements OnInit {
     },
     {
       cod:9,
-      name:'Incapacidades'
-    },
-    {
-      cod:10,
       name:'Vacaciones'
     },
     {
-      cod:11,
+      cod:10,
       name:'Maternidad'
     },
     {
-      cod:12,
+      cod:11,
       name:'Reglamento interno de trabajo'
     },
     {
-      cod:13,
+      cod:12,
       name:'Enfermedad laboral'
     },
     {
-      cod:14,
+      cod:13,
       name:'Accidente laboral'
     },
     {
-      cod:15,
+      cod:14,
       name:'Exámenes ocupacionales'
     },
     {
-      cod:16,
+      cod:15,
       name:'Sindicato y agremiaciones'
     },
      {
-      cod:17,
+      cod:16,
       name:'Capacitaciones'
     },
     {
-      cod:18,
+      cod:17,
       name:'Dotación y EPP'
     },
     {
-      cod:19,
+      cod:18,
       name:'Permisos y licencias'
     },
     {
-      cod:20,
+      cod:19,
       name:'Procesos disciplinarios'
     },
     {
-      cod:21,
+      cod:20,
       name:'Despidos y sanciones'
     },
     {
-      cod:22,
+      cod:21,
       name:'Auxilios y subsidios'
-    } 
+    }
   ];
   subdirectivaSelected:string='';
   consultaLaboralSelected:string='';
@@ -145,7 +141,7 @@ export class ChatPage implements OnInit {
   });
 
   constructor(
-    private route: Router, 
+    private route: Router,
     private navCtrl: NavController,
     public _MessageService: MessageService,
     public gblService: GlobalServiceService
@@ -195,7 +191,7 @@ export class ChatPage implements OnInit {
               });
     }else if(this.subdirectivaSelected=='Meta'){
       let data = {
-        to:'juntadirectiva.sindispetrol@gmail.com', 
+        to:'juntadirectiva.sindispetrol@gmail.com',
         subject:`Consulta labooral de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.consultaLaboralSelected}</p><br>
