@@ -79,9 +79,11 @@
                     <ion-label><strong style="font-family: auto; font-size: small;">Lugar de trabajo:</strong></ion-label>
                     <ion-input type="text" formControlName="lugarTrabajo"></ion-input>
                   </ion-item><br>
+                  <ion-label><strong style="font-family: auto; font-size: small;">Adjuntar sólo imagen jpg o png:</strong></ion-label>
                   <ion-item class="formulario">
-                    <ion-label><strong style="font-family: auto; font-size: small;">Imagen adjunta:</strong></ion-label>
+                    <!-- <ion-label><strong style="font-family: auto; font-size: small;">Imagen adjunta:</strong></ion-label> -->
                     <input type="file"
+                      accept="image/png,image/jpeg"
                       id="file"
                       name="file"
                       style="font-size: small;"
