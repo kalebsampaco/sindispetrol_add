@@ -88,12 +88,13 @@
                 <ion-input name="celular" [(ngModel)]="celular"></ion-input>
             </ion-item> <br>
              <div class="signature-pad">
-                <div class="signature-pad--body">
-                    <canvas #sPad width="280" height="100" style="touch-action: none;"></canvas>
+                <div class="signature-pad--body  mr-1">
+                    <canvas #sPad width="330" height="100" style="touch-action: none;"></canvas>
                 </div>
 
             </div>
          <ion-button  color="success" (click)="clear()">Borrar firma</ion-button>
+          <ion-label><strong style="font-family: auto; font-size: 10px;">Al dar enviar acepta los terminos de habeas data respecto de la ley 1266 de 2008 y la ley 1581 de 2012</strong></ion-label>
             <ion-button type="submit" color="success" >Enviar Afiliación firmada</ion-button>
         </form>
 

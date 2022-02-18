@@ -25,12 +25,7 @@ export class CipiaguaPage implements OnInit {
           console.log(this.image)
       },
       (error: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ha ocurrido un error.',
-          timer: 2000,
-        });
+
         console.log('error enviando tomandos los datos', error);
       }
     );

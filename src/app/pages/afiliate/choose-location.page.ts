@@ -91,7 +91,10 @@ export class ChooseLocationPage implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.signaturePad = new SignaturePad(this.signaturePadElement.nativeElement);
+    this.signaturePad = new SignaturePad(this.signaturePadElement.nativeElement, {
+      minWidth: 5,
+      maxWidth: 10,
+    });
   }
 
   clear() {
