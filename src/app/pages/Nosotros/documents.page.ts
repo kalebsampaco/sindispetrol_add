@@ -15,19 +15,26 @@ export class DocumentsPage implements OnInit {
     watchSlidesProgress: true,
   };
   JuntaDirectiva = [
-    {name:'Berquiz Borja', cargo:'Presidente Nacional', url:'assets/imgs/presidente.png'},
-    {name:'Ricaurte Reina', cargo:'Vicepresidente', url:'assets/imgs/vicepresidente.png'},
+    {name:'Berquiz Borja Orduz', cargo:'Presidente Nacional', url:'assets/imgs/presidente.png'},
+    {name:'Ricaurte Reina Altuve', cargo:'Vicepresidente', url:'assets/imgs/vicepresidente.png'},
     {name:'Rodolfo Romero', cargo:'Secretario Nal.', url:'assets/imgs/Rodolfo.png'},
     {name:'Hernan Rojas', cargo:'Fiscal', url:'assets/imgs/Hernan.png'},
     {name:'Leonardo López', cargo:'Tesorero', url:'assets/imgs/Leonardo.png'},
     {name:'Eduber Peña', cargo:'Sec. Organización', url:'assets/imgs/Eduber.png'},
     {name:'Javier Díaz', cargo:'Sec. FRC', url:'assets/imgs/javier.png'},
     {name:'Ivan Camacho', cargo:'Sec. Prom. Social', url:'assets/imgs/ivan.png'},
-    {name:'Joseph Pinzon', cargo:'Sec. Comunicaciones', url:'assets/imgs/joseph.png'}];
+    {name:'Joseph Pinzon', cargo:'Sec. Comunicaciones', url:'assets/imgs/joseph.png'},
+    {name:'Victor Julio Villarreal', cargo:'Secretario jurídico Nacional', url:'assets/imgs/Victor Julio.png'},
+
+  ];
 
   constructor(private router: Router, private modalCtrl: ModalController, private navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  redFacebook() {
+   window.open('https://www.facebook.com/SINDISPETROL')
   }
 
   nuevosEstatutos() {
