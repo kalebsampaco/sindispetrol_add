@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MetaPageRoutingModule } from './meta-routing.module';
 
 import { MetaPage } from './meta.page';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { MetaPage } from './meta.page';
     IonicModule,
     MetaPageRoutingModule
   ],
-  declarations: [MetaPage]
+  declarations: [MetaPage],
+  providers:[InAppBrowser]
 })
 export class MetaPageModule {}

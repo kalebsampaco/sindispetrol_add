@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { GlobalServiceService } from '../services/global-service.service'
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
+import {InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-meta',
@@ -10,9 +11,30 @@ import * as $ from 'jquery';
   styleUrls: ['./meta.page.scss'],
 })
 export class MetaPage implements OnInit {
-   url:any;
+  url:any;
   image:any;
-  constructor(private navCtrl: NavController, private gblService:GlobalServiceService) { }
+  options : InAppBrowserOptions = {
+    location : 'yes',//Or 'no' 
+    hidden : 'no', //Or  'yes'
+    clearcache : 'yes',
+    clearsessioncache : 'yes',
+    zoom : 'yes',//Android only ,shows browser zoom controls 
+    hardwareback : 'yes',
+    mediaPlaybackRequiresUserAction : 'no',
+    shouldPauseOnSuspend : 'no', //Android only 
+    closebuttoncaption : 'Close', //iOS only
+    disallowoverscroll : 'no', //iOS only 
+    toolbar : 'yes', //iOS only 
+    enableViewportScale : 'no', //iOS only 
+    allowInlineMediaPlayback : 'no',//iOS only 
+    presentationstyle : 'pagesheet',//iOS only 
+    fullscreen : 'yes',//Windows only    
+  };
+  target = '_system'
+
+  constructor(
+    private iab: InAppBrowser,
+    private navCtrl: NavController, private gblService:GlobalServiceService) { }
 
   async ngOnInit() {
     this.gblService.getService('metas').subscribe(
@@ -32,8 +54,7 @@ export class MetaPage implements OnInit {
   }
 
   abrirUrl() {
-    window.open(this.url)
-
+    this.iab.create(this.url,this.target,this.options);
   }
 
    toastFireError(res: any) {

@@ -2,6 +2,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
+import {InAppBrowser, InAppBrowserOptions}from '@ionic-native/in-app-browser/ngx'
 
 @Component({
   selector: 'app-documents',
@@ -9,6 +10,25 @@ import { ModalController, NavController } from '@ionic/angular';
   styleUrls: ['./documents.page.scss'],
 })
 export class DocumentsPage implements OnInit {
+  options : InAppBrowserOptions = {
+    location : 'yes',//Or 'no' 
+    hidden : 'no', //Or  'yes'
+    clearcache : 'yes',
+    clearsessioncache : 'yes',
+    zoom : 'yes',//Android only ,shows browser zoom controls 
+    hardwareback : 'yes',
+    mediaPlaybackRequiresUserAction : 'no',
+    shouldPauseOnSuspend : 'no', //Android only 
+    closebuttoncaption : 'Close', //iOS only
+    disallowoverscroll : 'no', //iOS only 
+    toolbar : 'yes', //iOS only 
+    enableViewportScale : 'no', //iOS only 
+    allowInlineMediaPlayback : 'no',//iOS only 
+    presentationstyle : 'pagesheet',//iOS only 
+    fullscreen : 'yes',//Windows only    
+  };
+  target = '_system'
+
   slideOpts = {
     initialSlide: 0,
     speed: 400,
@@ -28,22 +48,25 @@ export class DocumentsPage implements OnInit {
 
   ];
 
-  constructor(private router: Router, private modalCtrl: ModalController, private navCtrl: NavController) { }
+  constructor(
+    private iab: InAppBrowser,
+    private router: Router, private modalCtrl: ModalController, private navCtrl: NavController) { }
 
   ngOnInit() {
   }
-
+  
   redFacebook() {
-   window.open('https://www.facebook.com/SINDISPETROL')
+   this.iab.create('https://www.facebook.com/SINDISPETROL',this.target,this.options);
   }
 
   nuevosEstatutos() {
-    window.open('https://sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf')
+     this.iab.create('https://sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf',this.target,this.options);
   }
 
   convencionColectiva() {
-    window.open('https://sindispetrol.xyz/uploads/Convencion_colectiva_2018_2022_0fd7b3cffc.pdf')
+    this.iab.create('https://sindispetrol.xyz/uploads/Convencion_colectiva_2018_2022_0fd7b3cffc.pdf',this.target,this.options);
   }
+
   async goToUploadDocuments() {
       /* const modal = await this.modalCtrl.create({
         component: UploadDocumentPage,

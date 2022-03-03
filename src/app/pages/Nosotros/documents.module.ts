@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DocumentsPageRoutingModule } from './documents-routing.module';
 
 import { DocumentsPage } from './documents.page';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   imports: [
@@ -16,5 +17,9 @@ import { DocumentsPage } from './documents.page';
     DocumentsPageRoutingModule
   ],
   declarations: [DocumentsPage]
+  ,
+  providers:[
+    InAppBrowser
+  ]
 })
 export class DocumentsPageModule {}
