@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { GlobalServiceService } from '../services/global-service.service';
-import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+//import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 
