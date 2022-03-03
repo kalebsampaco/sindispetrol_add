@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { GlobalServiceService } from '../services/global-service.service'
+import { GlobalServiceService } from '../services/global-service.service';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 
@@ -10,20 +11,20 @@ import * as $ from 'jquery';
   styleUrls: ['./cicuco.page.scss'],
 })
 export class CicucoPage implements OnInit {
-      url:any;
-  image:any;
+  url: any;
+  image: any;
 
-  constructor(private navCtrl: NavController,  private gblService:GlobalServiceService,) { }
+  constructor(private navCtrl: NavController,  private gblService: GlobalServiceService, private iab: InAppBrowser) { }
 
    async ngOnInit() {
     this.gblService.getService('cicucos').subscribe(
       async (res: any) => {
 
-          console.log(res)
-          this.url = 'http://'+res[0].url
-          this.image = 'https://sindispetrol.xyz'+res[0].imagen[0].url
-          console.log(this.url)
-          console.log(this.image)
+          console.log(res);
+          this.url = 'http://'+res[0].url;
+          this.image = 'https://sindispetrol.xyz'+res[0].imagen[0].url;
+          console.log(this.url);
+          console.log(this.image);
       },
       (error: any) => {
 
@@ -33,7 +34,7 @@ export class CicucoPage implements OnInit {
   }
 
   abrirUrl() {
-    window.open(`${this.url}`)
+    const browser = this.iab.create(`${this.url}`, '_blank');
   }
 
    toastFireError(res: any) {
@@ -42,7 +43,7 @@ export class CicucoPage implements OnInit {
       title: 'Error',
       text: res.message,
       timer: 2000,
-    })
+    });
   }
 
   toastFireErrorvalid(msm: any) {
@@ -55,7 +56,7 @@ export class CicucoPage implements OnInit {
   }
 
   goBack() {
-      this.navCtrl.back()
+      this.navCtrl.back();
   }
 
 

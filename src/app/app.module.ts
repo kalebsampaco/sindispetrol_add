@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MessageService } from './pages/services/message.service';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,9 @@ import { MessageService } from './pages/services/message.service';
     StatusBar,
     SplashScreen,
     MessageService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    InAppBrowser
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
   selector: 'app-set-reminder',
@@ -8,30 +9,33 @@ import { Component, OnInit } from '@angular/core';
 export class SetReminderPage implements OnInit {
 
   timeSlots = [];
-  constructor() { }
+  constructor(private iab: InAppBrowser) { }
 
   ngOnInit() {
   }
 
   webMutual() {
 
-    window.open('https://www.consolidaridad.com.co/consultas/autenticar')
+    //window.open('https://www.consolidaridad.com.co/consultas/autenticar')
+    const browser = this.iab.create('https://www.consolidaridad.com.co/consultas/autenticar', '_blank');
   }
 
   linkEducacion() {
-    window.open('juntadirectiva.sindispetrol@gmail.com')
+    //window.open('juntadirectiva.sindispetrol@gmail.com')
+    const browser = this.iab.create('juntadirectiva.sindispetrol@gmail.com', '_blank');
   }
 
   linkRecreacion(){
-    window.open('juntadirectiva.sindispetrol@gmail.com')
+    //window.open('juntadirectiva.sindispetrol@gmail.com')
+    const browser = this.iab.create('juntadirectiva.sindispetrol@gmail.com', '_blank');
   }
 
   linkVivienda(){
-    window.open('juntadirectiva.sindispetrol@gmail.com')
+    window.open('juntadirectiva.sindispetrol@gmail.com');
   }
 
   linkSalud(){
-    window.open('juntadirectiva.sindispetrol@gmail.com')
+    window.open('juntadirectiva.sindispetrol@gmail.com');
   }
 
   addSlot() {

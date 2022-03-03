@@ -2,6 +2,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
   selector: 'app-documents',
@@ -14,7 +15,7 @@ export class DocumentsPage implements OnInit {
     speed: 400,
     watchSlidesProgress: true,
   };
-  JuntaDirectiva = [
+  juntaDirectiva = [
     {name:'Berquiz Borja Orduz', cargo:'Presidente Nacional', url:'assets/imgs/presidente.png'},
     {name:'Ricaurte Reina Altuve', cargo:'Vicepresidente', url:'assets/imgs/vicepresidente.png'},
     {name:'Rodolfo Romero', cargo:'Secretario Nal.', url:'assets/imgs/Rodolfo.png'},
@@ -28,21 +29,29 @@ export class DocumentsPage implements OnInit {
 
   ];
 
-  constructor(private router: Router, private modalCtrl: ModalController, private navCtrl: NavController) { }
+  constructor(
+    private router: Router,
+    private modalCtrl: ModalController,
+    private navCtrl: NavController,
+    private iab: InAppBrowser) { }
 
   ngOnInit() {
   }
 
   redFacebook() {
-   window.open('https://www.facebook.com/SINDISPETROL')
+   //window.open('https://www.facebook.com/SINDISPETROL');
+    const browser = this.iab.create('https://www.facebook.com/SINDISPETROL', '_blank');
   }
 
   nuevosEstatutos() {
-    window.open('https://sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf')
+    //window.open('https://sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf');
+    // eslint-disable-next-line max-len
+    const browser = this.iab.create('https://sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_1_a0de6e27ff.pdf', '_blank');
   }
 
   convencionColectiva() {
-    window.open('https://sindispetrol.xyz/uploads/Convencion_colectiva_2018_2022_0fd7b3cffc.pdf')
+    //window.open('https://sindispetrol.xyz/uploads/Convencion_colectiva_2018_2022_0fd7b3cffc.pdf');
+    const browser = this.iab.create('https://sindispetrol.xyz/uploads/Convencion_colectiva_2018_2022_0fd7b3cffc.pdf', '_blank');
   }
   async goToUploadDocuments() {
       /* const modal = await this.modalCtrl.create({
