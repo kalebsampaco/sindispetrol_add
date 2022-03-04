@@ -19,10 +19,10 @@ export class MyOrdersPage implements OnInit {
     watchSlidesProgress: true,
   };
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     public formBuilder: FormBuilder,
     private gblService:GlobalServiceService,
-    ) { 
+    ) {
     this.copasst = this.formBuilder.group({
       nombreCompleto: ['', Validators.required],
       empresa: ['', Validators.required],
@@ -32,7 +32,7 @@ export class MyOrdersPage implements OnInit {
       detallePeticion: ['', Validators.required],
     });
   }
- 
+
   ngOnInit() {
   }
 
@@ -79,28 +79,29 @@ export class MyOrdersPage implements OnInit {
       }
     );
   } */
-  
+
    logForm(){
-    console.log(this.copasst.value, this.fileCertificado)
-    let data = new FormData();
+    console.log(this.copasst.value, this.fileCertificado);
+    const data = new FormData();
     const json = JSON.stringify(this.copasst.value);
     /* const blob = new Blob([json], {
       type: 'application/json'
     }); */
-    console.log(json)
+    console.log(json);
     data.append('files.imagen', this.fileCertificado);
     data.append('data', json);
+    console.log(data);
 
     this.gblService.postService('copassts', data).subscribe(
       (res: any) => {
-          
+
           Swal.fire({
             icon: 'success',
             title: 'Exito',
             text: 'Archivos subidos con éxito.',
           });
           this.fileCertificado = null;
-          $("#file").val('');
+          $('#file').val('');
           this.copasst.value.nombreCompleto = '';
           this.copasst.value.empresa = '';
           this.copasst.value.tipoContrato = '';
