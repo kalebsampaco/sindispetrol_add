@@ -1,0 +1,28 @@
+ionic serve -l  ---> debug con vista de android y apple
+
+ionic build
+
+ionic cordova prepare android
+
+ionic cordova build --release android
+
+cd platforms/android/
+
+./gradlew bundleRelease
+
+cd app/build/outputs/bundle/release/
+
+-----se debe pasar el archivo de key sindispetrolKey a la carpeta app/build/outputs/bundle/release/     ----- la contraseña de la key es Sindispetrol22*
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore .\sindispetrolKey .\app-release.aab sindispetrol
+
+se toma el archivo de app/build/outputs/bundle/release/app-release.aab y se sube a google play
+
+
+
+-------------------------------------------------------------------------------
+ionic cordova run android --prod --release -- -- --minSdkVersion=30 ---- genera errror porque el apk no esta firmado
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore .\sindispetrolKey .\app-release-unsigned.apk sindispetrol  ----- se firma y luego se corre el siguiente código
+
+native-run.cmd android --app platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk

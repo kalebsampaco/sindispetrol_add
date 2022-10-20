@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SetReminderPageRoutingModule } from './set-reminder-routing.module';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SetReminderPage } from './set-reminder.page';
 
 @NgModule({
@@ -15,6 +15,7 @@ import { SetReminderPage } from './set-reminder.page';
     IonicModule,
     SetReminderPageRoutingModule
   ],
-  declarations: [SetReminderPage]
+  declarations: [SetReminderPage],
+  providers:[InAppBrowser]
 })
 export class SetReminderPageModule {}

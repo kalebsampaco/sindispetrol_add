@@ -9,7 +9,7 @@
             Sindispetrol
         </ion-button>
     </ion-toolbar>
-</ion-header> 
+</ion-header>
 
 
 <ion-content>
@@ -18,12 +18,12 @@
             <div>
                 <img src="assets/imgs/juridica.png"  class="ml-3">
             </div>
-           
+
         </div>
         <div>
             <br>
             <p class="encabezado" style="text-align: justify;">Este es un espacio para resolver dudas, asesorías, reclamaciones en temas jurídicos</p>
-        </div> 
+        </div>
         <form [formGroup]="usuario" (ngSubmit)="enviarFormularioAfiliacion()">
             <ion-item class="formulario">
                 <ion-label><strong style="font-family: auto; font-size: small;">Subdirectiva:</strong></ion-label>
@@ -58,7 +58,7 @@
                 <ion-textarea formControlName="consulta"></ion-textarea>
             </ion-item><br>
 
-            <ion-button type="submit" color="success" [disabled]="!usuario.valid && subdirectivaSelected==undefined">Guardar</ion-button>
+            <ion-button type="submit" color="success" [disabled]="!usuario.valid && subdirectivaSelected===undefined">Guardar</ion-button>
         </form>
     </div>
 </ion-content>

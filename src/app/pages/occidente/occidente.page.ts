@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { GlobalServiceService } from '../services/global-service.service';
-//import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 
@@ -17,12 +16,12 @@ export class OccidentePage implements OnInit {
   constructor(private navCtrl: NavController, private gblService: GlobalServiceService, private iab: InAppBrowser) { }
 
   async ngOnInit() {
-    this.gblService.getService('occidentes').subscribe(
+    this.gblService.getService('occidentes?populate=imagen').subscribe(
       async (res: any) => {
 
           console.log(res);
-          this.url = 'http://'+res[0].url;
-          this.image = 'https://sindispetrol.xyz'+res[0].imagen[0].url;
+          this.url = 'https://'+res.data[0].attributes.url;
+          this.image = 'https://api.sindispetrol.xyz'+res.data[0].attributes.imagen.data[0].attributes.url;
           console.log(this.url);
           console.log(this.image);
       },

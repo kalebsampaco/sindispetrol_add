@@ -40,10 +40,6 @@ const routes: Routes = [
     path: 'afiliate',
     loadChildren: () => import('./pages/afiliate/choose-location.module').then(m => m.ChooseLocationPageModule)
   },
-  {
-    path: 'notification',
-    loadChildren: () => import('./pages/notification/notification.module').then(m => m.NotificationPageModule)
-  },
   /* {
     path: 'pharmacy',
     loadChildren: () => import('./pages/pharmacy/pharmacy.module').then(m => m.PharmacyPageModule)

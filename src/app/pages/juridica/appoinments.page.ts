@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/naming-convention */
 import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,7 +16,7 @@ import { GlobalServiceService } from '../services/global-service.service';
 })
 export class AppoinmentsPage implements OnInit {
 
- 
+
   subdirectivas = [
     {
       cod : 1,
@@ -43,20 +46,18 @@ export class AppoinmentsPage implements OnInit {
       cod : 7,
       name : 'Barrancabermeja'
     },
-    
-    
   ];
-  subdirectivaSelected:string='';
- 
+  subdirectivaSelected='';
+
 
   usuario = new FormGroup({
     nombre: new FormControl(''),
     email: new FormControl(''),
     consulta: new FormControl(''),
   });
- 
+
   constructor(
-    private route: Router, 
+    private route: Router,
     private navCtrl: NavController,
     public _MessageService: MessageService,
     public gblService: GlobalServiceService
@@ -98,165 +99,168 @@ export class AppoinmentsPage implements OnInit {
     juntadirectiva.sindispetrol@gmail.com - Meta
     sindispetrol1@gmail.com - Bogota
     trabajadoressindispetrol@gmail.com - barrancabermeja */
-    let data = {
+    const data = {
       subdirectiva: this.subdirectivaSelected,
       nombre: this.usuario.value.nombre,
       email: this.usuario.value.email,
       consulta: this.usuario.value.consulta
-    }
+    };
     this.gblService.postService('judicials', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',
                         });
+                        this.subdirectivaSelected = null;
+                        this.usuario.reset();
                 });
-    if(this.subdirectivaSelected==''){
+    /* if(this.subdirectivaSelected===''){
         Swal.fire({
-                title: "Sin Subdirectiva",
-                text: "Por favor selecciones una subdirectiva para enviar la consulta",
+                title: 'Sin Subdirectiva',
+                text: 'Por favor selecciones una subdirectiva para enviar la consulta',
                 icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
-    }else if(this.subdirectivaSelected=='Meta'){
-      let data = {
+    }else if(this.subdirectivaSelected==='Meta'){
+      const data = {
         to:'juntadirectiva.sindispetrol@gmail.com',
         subject:`Consulta juridica de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.usuario.value.email}</p><br>
               <p>${this.usuario.value.consulta}</p><br>`
-      }
+      };
       this._MessageService.sendMessage(data).subscribe(() => {
         Swal.fire({
-                title: "Formulario de contacto",
-                text: "Mensaje enviado correctamente",
+                title: 'Formulario de contacto',
+                text: 'Mensaje enviado correctamente',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
       });
-    }else if(this.subdirectivaSelected=='Bogotá') {
-      let data = {
+    }else if(this.subdirectivaSelected==='Bogotá') {
+      const data = {
         to:'sindispetrol1@gmail.com',
         subject:`Consulta juridica de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.usuario.value.email}</p><br>
               <p>${this.usuario.value.consulta}</p><br>`
-      }
+      };
       this._MessageService.sendMessage(data).subscribe(() => {
         Swal.fire({
-                title: "Formulario de contacto",
-                text: "Mensaje enviado correctamente",
+                title: 'Formulario de contacto',
+                text: 'Mensaje enviado correctamente',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
       });
-    }else if(this.subdirectivaSelected=='Cipiagua'){
-      let data = {
+    }else if(this.subdirectivaSelected==='Cipiagua'){
+      const data = {
         to:'sindicasanarecupiagua@gmail.com',
         subject:`Consulta juridica de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.usuario.value.email}</p><br>
               <p>${this.usuario.value.consulta}</p><br>`
-      }
+      };
       this._MessageService.sendMessage(data).subscribe(() => {
         Swal.fire({
-                title: "Formulario de contacto",
-                text: "Mensaje enviado correctamente",
+                title: 'Formulario de contacto',
+                text: 'Mensaje enviado correctamente',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
       });
-    }else if(this.subdirectivaSelected=='Bucaramanga'){
-      let data = {
+    }else if(this.subdirectivaSelected==='Bucaramanga'){
+      const data = {
         to:'sindispetrolbucaramanga2021@gmail.com',
         subject:`Consulta juridica de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.usuario.value.email}</p><br>
               <p>${this.usuario.value.consulta}</p><br>`
-      }
+      };
       this._MessageService.sendMessage(data).subscribe(() => {
         Swal.fire({
-                title: "Formulario de contacto",
-                text: "Mensaje enviado correctamente",
+                title: 'Formulario de contacto',
+                text: 'Mensaje enviado correctamente',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
       });
-    }else if(this.subdirectivaSelected=='Cicuco'){
-      let data = {
+    }else if(this.subdirectivaSelected==='Cicuco'){
+      const data = {
         to:'sindispetrolsubdirectivacicuco@gmail.com',
         subject:`Consulta juridica de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.usuario.value.email}</p><br>
               <p>${this.usuario.value.consulta}</p><br>`
-      }
+      };
       this._MessageService.sendMessage(data).subscribe(() => {
         Swal.fire({
-                title: "Formulario de contacto",
-                text: "Mensaje enviado correctamente",
+                title: 'Formulario de contacto',
+                text: 'Mensaje enviado correctamente',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
       });
-    }else if(this.subdirectivaSelected=='Occidente'){
-      let data = {
+    }else if(this.subdirectivaSelected==='Occidente'){
+      const data = {
         to:'Sindispetrolductos@gmail.com',
         subject:`Consulta juridica de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.usuario.value.email}</p><br>
               <p>${this.usuario.value.consulta}</p><br>`
-      }
+      };
       this._MessageService.sendMessage(data).subscribe(() => {
         Swal.fire({
-                title: "Formulario de contacto",
-                text: "Mensaje enviado correctamente",
+                title: 'Formulario de contacto',
+                text: 'Mensaje enviado correctamente',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
       });
-    }else if(this.subdirectivaSelected=='Barrancabermeja'){
-      let data = {
+    }else if(this.subdirectivaSelected==='Barrancabermeja'){
+      const data = {
         to:'trabajadoressindispetrol@gmail.com',
         subject:`Consulta juridica de ${this.usuario.value.nombre}`,
         html: `<p>${this.usuario.value.nombre}</p><br>
               <p>${this.usuario.value.email}</p><br>
               <p>${this.usuario.value.consulta}</p><br>`
-      }
+      };
       this._MessageService.sendMessage(data).subscribe(() => {
         Swal.fire({
-                title: "Formulario de contacto",
-                text: "Mensaje enviado correctamente",
+                title: 'Formulario de contacto',
+                text: 'Mensaje enviado correctamente',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'OK',
               });
       });
-    }
-    console.log(this.usuario.value.nombre)
+    } */
+    console.log(this.usuario.value.nombre);
   }
 
   subDirectiva(sub){
     console.log(sub);
     this.subdirectivaSelected = sub;
   }
-  
+
 
 }

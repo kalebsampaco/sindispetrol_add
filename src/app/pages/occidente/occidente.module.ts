@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { OccidentePageRoutingModule } from './occidente-routing.module';
 
 import { OccidentePage } from './occidente.page';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { OccidentePage } from './occidente.page';
     IonicModule,
     OccidentePageRoutingModule
   ],
-  declarations: [OccidentePage]
+  declarations: [OccidentePage],
+  providers:[InAppBrowser]
 })
 export class OccidentePageModule {}

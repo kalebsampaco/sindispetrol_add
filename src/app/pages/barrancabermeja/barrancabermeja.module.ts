@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { BarrancabermejaPageRoutingModule } from './barrancabermeja-routing.module';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { BarrancabermejaPage } from './barrancabermeja.page';
 
 @NgModule({
@@ -15,6 +15,7 @@ import { BarrancabermejaPage } from './barrancabermeja.page';
     IonicModule,
     BarrancabermejaPageRoutingModule
   ],
-  declarations: [BarrancabermejaPage]
+  declarations: [BarrancabermejaPage],
+  providers:[InAppBrowser]
 })
 export class BarrancabermejaPageModule {}

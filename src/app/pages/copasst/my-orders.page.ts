@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { GlobalServiceService } from '../services/global-service.service'
+import { GlobalServiceService } from '../services/global-service.service';
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 @Component({
@@ -10,7 +11,7 @@ import * as $ from 'jquery';
   styleUrls: ['./my-orders.page.scss'],
 })
 export class MyOrdersPage implements OnInit {
-  public copasst : FormGroup;
+  public copasst: FormGroup;
   tabID = 'new';
   fileCertificado: any;
   slideOpts = {
@@ -19,27 +20,41 @@ export class MyOrdersPage implements OnInit {
     watchSlidesProgress: true,
   };
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     public formBuilder: FormBuilder,
-    private gblService:GlobalServiceService,
-    ) { 
+    private gblService: GlobalServiceService,
+    ) {
     this.copasst = this.formBuilder.group({
-      nombreCompleto: ['', Validators.required],
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      nombre_completo: ['', Validators.required],
       empresa: ['', Validators.required],
-      tipoContrato: ['', Validators.required],
-      gerenciaDondeLabora: ['', Validators.required],
-      lugarTrabajo: ['', Validators.required],
-      detallePeticion: ['', Validators.required],
+      tipo_contrato: ['', Validators.required],
+      gerencia_donde_labora: ['', Validators.required],
+      lugar_trabajo: ['', Validators.required],
+      detalle_peticion: ['', Validators.required],
     });
   }
- 
+
   ngOnInit() {
   }
 
   incomingfileCertificado(ev: any) {
-    if (ev != undefined) {
-      this.fileCertificado = ev.target.files[0];
-      console.log(this.fileCertificado)
+    if (ev !== undefined) {
+      if(ev.target.files[0].size > 823835){
+        Swal.fire({
+          icon: 'info',
+          title: 'Archivo no subido',
+          heightAuto: false,
+          text: 'El archivo sobrepasa el máximo del tamaño permitido',
+        });
+        this.fileCertificado = null;
+        $('#file').val('');
+        return;
+      }else {
+        this.fileCertificado = ev.target.files[0];
+        console.log(this.fileCertificado);
+      }
+
     }
 
   }
@@ -79,39 +94,35 @@ export class MyOrdersPage implements OnInit {
       }
     );
   } */
-  
+
    logForm(){
-    console.log(this.copasst.value, this.fileCertificado)
-    let data = new FormData();
+    const data = new FormData();
     const json = JSON.stringify(this.copasst.value);
     /* const blob = new Blob([json], {
       type: 'application/json'
     }); */
-    console.log(json)
-    data.append('files.imagen', this.fileCertificado);
+    console.log(json);
     data.append('data', json);
-
-    this.gblService.postService('copassts', data).subscribe(
+    data.append('files.imagen', this.fileCertificado);
+    console.log(data.get('headers'));
+    this.gblService.postServiceCopasst('copassts', data).subscribe(
       (res: any) => {
-          
+
           Swal.fire({
             icon: 'success',
             title: 'Exito',
+            heightAuto: false,
             text: 'Archivos subidos con éxito.',
           });
           this.fileCertificado = null;
-          $("#file").val('');
-          this.copasst.value.nombreCompleto = '';
-          this.copasst.value.empresa = '';
-          this.copasst.value.tipoContrato = '';
-          this.copasst.value.gerenciaDondeLabora = '';
-          this.copasst.value.lugarTrabajo = '';
+          $('#file').val('');
           this.copasst.reset();
       },
       (error: any) => {
         Swal.fire({
           icon: 'error',
           title: 'Error',
+          heightAuto: false,
           text: 'Ha ocurrido un error.',
           timer: 2000,
         });
@@ -124,14 +135,16 @@ export class MyOrdersPage implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Error',
+      heightAuto: false,
       text: res.message,
       timer: 2000,
-    })
+    });
   }
 
   toastFireErrorvalid(msm: any) {
     Swal.fire({
       icon: 'info',
+      heightAuto: false,
       title: 'Importante',
       text: msm,
       // timer: 2000,

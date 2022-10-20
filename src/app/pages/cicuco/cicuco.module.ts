@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CicucoPageRoutingModule } from './cicuco-routing.module';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CicucoPage } from './cicuco.page';
 
 @NgModule({
@@ -15,6 +15,7 @@ import { CicucoPage } from './cicuco.page';
     IonicModule,
     CicucoPageRoutingModule
   ],
-  declarations: [CicucoPage]
+  declarations: [CicucoPage],
+  providers:[InAppBrowser]
 })
 export class CicucoPageModule {}

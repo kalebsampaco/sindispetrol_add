@@ -1,3 +1,10 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/semi */
+/* eslint-disable @angular-eslint/use-lifecycle-interface */
+/* eslint-disable @typescript-eslint/member-ordering */
+/* eslint-disable @typescript-eslint/type-annotation-spacing */
 import { NavController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -5,12 +12,12 @@ import { MessageService } from '../services/message.service';
 import Swal from 'sweetalert2';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Columns, Img, PdfMakeWrapper, Txt } from 'pdfmake-wrapper';
-import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import SignaturePad from 'signature_pad';
 
 
 // import the pdfmake library
-import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfMake from 'pdfmake/build/pdfmake';
 import { GlobalServiceService } from '../services/global-service.service';
 
 /* declare var require: any
@@ -77,9 +84,10 @@ export class ChooseLocationPage implements OnInit {
   barrio: any;
   email: any;
   celular: any;
-   @ViewChild('sPad', {static: true}) signaturePadElement;
+   @ViewChild('sPad', {static: true}) signaturePadElement: { nativeElement: HTMLCanvasElement };
   signaturePad: any;
   dataURL: any;
+  resolutionPantalla: number;
 
   constructor(
     private route: Router,
@@ -88,12 +96,13 @@ export class ChooseLocationPage implements OnInit {
 
   ngOnInit() {
     this.fecha = new Date().toISOString();
+    this.resolutionPantalla = screen.width - 60;
   }
 
   ngAfterViewInit(): void {
     this.signaturePad = new SignaturePad(this.signaturePadElement.nativeElement, {
-      minWidth: 5,
-      maxWidth: 10,
+      minWidth: 0.5,
+      maxWidth: 1,
     });
   }
 
@@ -122,111 +131,123 @@ export class ChooseLocationPage implements OnInit {
     let blob
     let linkSource:any;
     console.log(new Date(this.fecha).toISOString().split('T22')[0], 'ciudad')
-    if(this.subdirectivaSelected==undefined){
+    if(this.subdirectivaSelected===undefined){
             Swal.fire({
-                    title: "Sin Subdirectiva",
-                    text: "Por favor selecciones una subdirectiva para enviar el formulario",
+                    title: 'Sin Subdirectiva',
+                    text: 'Por favor selecciones una subdirectiva para enviar el formulario',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.ciudad==undefined) {
+        }else if(this.ciudad===undefined) {
           Swal.fire({
-                    title: "Sin ciudad",
-                    text: "Por favor escriba una ciudad",
+                    title: 'Sin ciudad',
+                    text: 'Por favor escriba una ciudad',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.fecha==undefined) {
+        }else if(this.fecha===undefined) {
           Swal.fire({
-                    title: "Sin fecha",
-                    text: "Por favor escriba una fecha",
+                    title: 'Sin fecha',
+                    text: 'Por favor escriba una fecha',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.nombreCompleto==undefined) {
+        }else if(this.nombreCompleto===undefined) {
           Swal.fire({
-                    title: "sin nombre completo",
-                    text: "Por favor escriba su nombre completo",
+                    title: 'sin nombre completo',
+                    text: 'Por favor escriba su nombre completo',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.cedula==undefined) {
+        }else if(this.cedula===undefined) {
           Swal.fire({
-                    title: "Sin cedula",
-                    text: "Por favor escriba su cédula",
+                    title: 'Sin cedula',
+                    text: 'Por favor escriba su cédula',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.ciudadCedula==undefined) {
+        }else if(this.ciudadCedula===undefined) {
           Swal.fire({
-                    title: "Sin ciudad de la cédula",
-                    text: "Por favor escriba la ciudad de su cédula",
+                    title: 'Sin ciudad de la cédula',
+                    text: 'Por favor escriba la ciudad de su cédula',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.nombreEmpresa==undefined) {
+        }else if(this.nombreEmpresa===undefined) {
           Swal.fire({
-                    title: "Sin nombre de la empresa",
-                    text: "Por favor escriba el nombre de la empresa donde labora",
+                    title: 'Sin nombre de la empresa',
+                    text: 'Por favor escriba el nombre de la empresa donde labora',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.cargo==undefined) {
+        }else if(this.cargo===undefined) {
           Swal.fire({
-                    title: "Sin cargo",
-                    text: "Por favor escriba el cargo en su empresa",
+                    title: 'Sin cargo',
+                    text: 'Por favor escriba el cargo en su empresa',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
         }
-        else if(this.direccion==undefined) {
+        else if(this.direccion===undefined) {
           Swal.fire({
-                    title: "No ha escrito dirección",
-                    text: "Por favor escriba la dirección de su residencia",
+                    title: 'No ha escrito dirección',
+                    text: 'Por favor escriba la dirección de su residencia',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.barrio==undefined) {
+        }else if(this.barrio===undefined) {
           Swal.fire({
-                    title: "Sin barrio",
-                    text: "Por favor escriba el barrio donde vive",
+                    title: 'Sin barrio',
+                    text: 'Por favor escriba el barrio donde vive',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.email==undefined) {
+        }else if(this.email===undefined) {
           Swal.fire({
-                    title: "Sin email",
-                    text: "Por favor escriba su correo electrónico",
+                    title: 'Sin email',
+                    text: 'Por favor escriba su correo electrónico',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
                   });
-        }else if(this.celular==undefined) {
+        }else if(this.celular===undefined) {
           Swal.fire({
-                    title: "Sin celular",
-                    text: "Por favor escriba su número de celular",
+                    title: 'Sin celular',
+                    text: 'Por favor escriba su número de celular',
                     icon: 'warning',
+                    heightAuto: false,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK',
@@ -263,7 +284,6 @@ export class ChooseLocationPage implements OnInit {
                   pdf.ln(1)
               );
               this.dataURL = await this.signaturePad.toDataURL();
-                console.log(this.dataURL)
               pdf.add(new Txt('Cordialmente,').end );
               pdf.add(
                   pdf.ln(1)
@@ -289,7 +309,7 @@ export class ChooseLocationPage implements OnInit {
               pdf.create().getDataUrl(async function(url) {
 
                   blob  = url;
-                   console.log(blob, 'blob')
+                   console.log(blob)
                   return blob });
 
 
@@ -298,6 +318,7 @@ export class ChooseLocationPage implements OnInit {
             text:'Autorizo se descuente por nómina el valor del uno por ciento (1%) de mi Salario Básico Mensual como Cuota Ordinaria Sindical, para que sea consignado a favor de SINDISPETROL en la cuenta única de ahorros N° 146000657289 del Banco Davivienda, de conformidad con lo señalado en los artículos 56,57 y 58 del capítulo IX de los estatutos. Por ley Habeas data 1581/2012, autorizo a la empresa a informar el descuento de aportes sindicales de nómina quincenal a el sindicato para los temas de tesorería decreto 2264/2013.',
             showDenyButton: true,
             showCancelButton: true,
+            heightAuto: false,
             confirmButtonText: 'Acepto',
             denyButtonText: `No acepto`,
           }).then(async (result) => {
@@ -307,198 +328,205 @@ export class ChooseLocationPage implements OnInit {
 
 
 
-            if(this.subdirectivaSelected=='Meta'){
+            if(this.subdirectivaSelected==='Meta'){
 
 
-                let data = {
+                const data = {
                   subdirectiva:'juntadirectiva.sindispetrol@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombreCompleto: this.nombreCompleto,
+                  nombre_completo: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudadCedula: this.ciudadCedula,
-                  nombreEmpresa: this.nombreEmpresa,
+                  ciudad_cedula: this.ciudadCedula,
+                  nombre_empresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf64:blob,
+                  pdf_64:blob,
                 }
-                this.gblService.postService('afiliaciones', data).subscribe(() => {
+                this.gblService.postService('afiliacions', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected=='Bogotá') {
+              }else if(this.subdirectivaSelected==='Bogotá') {
 
 
-                  let data = {
+                  const data = {
                   subdirectiva:'sindispetrol1@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombreCompleto: this.nombreCompleto,
+                  nombre_completo: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudadCedula: this.ciudadCedula,
-                  nombreEmpresa: this.nombreEmpresa,
+                  ciudad_cedula: this.ciudadCedula,
+                  nombre_empresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf64: blob,
+                  pdf_64:blob,
                 }
 
-                this.gblService.postService('afiliaciones', data).subscribe(() => {
+                this.gblService.postService('afiliacions', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected=='Cipiagua'){
+              }else if(this.subdirectivaSelected==='Cupiagua'){
 
-                  let data = {
+                  const data = {
                   subdirectiva:'sindicasanarecupiagua@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombreCompleto: this.nombreCompleto,
+                  nombre_completo: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudadCedula: this.ciudadCedula,
-                  nombreEmpresa: this.nombreEmpresa,
+                  ciudad_cedula: this.ciudadCedula,
+                  nombre_empresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf64: blob
+                  pdf_64:blob,
                 }
 
-                this.gblService.postService('afiliaciones', data).subscribe(() => {
+                this.gblService.postService('afiliacions', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected=='Bucaramanga'){
+              }else if(this.subdirectivaSelected==='Bucaramanga'){
 
-                  let data = {
+                  const data = {
                   subdirectiva:'sindispetrolbucaramanga2021@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombreCompleto: this.nombreCompleto,
+                  nombre_completo: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudadCedula: this.ciudadCedula,
-                  nombreEmpresa: this.nombreEmpresa,
+                  ciudad_cedula: this.ciudadCedula,
+                  nombre_empresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf64: blob,
+                  pdf_64:blob,
                 }
 
-                this.gblService.postService('afiliaciones', data).subscribe(() => {
+                this.gblService.postService('afiliacions', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected=='Cicuco'){
+              }else if(this.subdirectivaSelected==='Cicuco'){
 
-                  let data = {
+                  const data = {
                   subdirectiva:'sindispetrolsubdirectivacicuco@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombreCompleto: this.nombreCompleto,
+                  nombre_completo: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudadCedula: this.ciudadCedula,
-                  nombreEmpresa: this.nombreEmpresa,
+                  ciudad_cedula: this.ciudadCedula,
+                  nombre_empresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf64: blob,
+                  pdf_64:blob,
                 }
 
-                this.gblService.postService('afiliaciones', data).subscribe(() => {
+                this.gblService.postService('afiliacions', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected=='Occidente'){
+              }else if(this.subdirectivaSelected==='Occidente'){
 
-                  let data = {
+                  const data = {
                   subdirectiva:'Sindispetrolductos@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombreCompleto: this.nombreCompleto,
+                  nombre_completo: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudadCedula: this.ciudadCedula,
-                  nombreEmpresa: this.nombreEmpresa,
+                  ciudad_cedula: this.ciudadCedula,
+                  nombre_empresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf64: blob,
+                  pdf_64:blob,
                 }
 
-                this.gblService.postService('afiliaciones', data).subscribe(() => {
+                this.gblService.postService('afiliacions', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected=='Barrancabermeja'){
+              }else if(this.subdirectivaSelected==='Barrancabermeja'){
 
-                  let data = {
+                  const data = {
                   subdirectiva:'trabajadoressindispetrol@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombreCompleto: this.nombreCompleto,
+                  nombre_completo: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudadCedula: this.ciudadCedula,
-                  nombreEmpresa: this.nombreEmpresa,
+                  ciudad_cedula: this.ciudadCedula,
+                  nombre_empresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf64: blob,
+                  pdf_64:blob,
                 }
 
-                this.gblService.postService('afiliaciones', data).subscribe(() => {
+                this.gblService.postService('afiliacions', data).subscribe(() => {
                   Swal.fire({
-                          title: "Archivo enviado",
-                          text: "Archivo enviado correctamente",
+                          title: 'Archivo enviado',
+                          text: 'Archivo enviado correctamente',
                           icon: 'success',
+                          heightAuto: false,
                           confirmButtonColor: '#3085d6',
                           cancelButtonColor: '#d33',
                           confirmButtonText: 'OK',

@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
@@ -9,11 +11,16 @@ export class GlobalServiceService {
   API = environment.API;
   constructor(private _http: HttpClient) { }
 
-  postService(path:any, body:any) {
+  postService(path: any, body: any) {
+    return this._http.post(`${this.API}${path}`, {data:body});
+  }
+
+  postServiceCopasst(path: any, body: any) {
+
     return this._http.post(`${this.API}${path}`, body);
   }
 
-  getService(path:any) {
+  getService(path: any) {
   return this._http.get(`${this.API}${path}`);
   }
 }

@@ -61,7 +61,7 @@
             <form [formGroup]="copasst" (ngSubmit)="logForm()">
                 <ion-item class="formulario">
                   <ion-label><strong style="font-family: auto; font-size: small;">Nombre Completo:</strong></ion-label>
-                  <ion-input type="text" formControlName="nombreCompleto"></ion-input>
+                  <ion-input type="text" formControlName="nombre_completo"></ion-input>
                 </ion-item> <br>
                 <ion-item class="formulario">
                   <ion-label><strong style="font-family: auto; font-size: small;">Empresa:</strong></ion-label>
@@ -69,15 +69,15 @@
                 </ion-item> <br>
                 <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Tipo de contrato:</strong></ion-label>
-                    <ion-input type="text" formControlName="tipoContrato"></ion-input>
+                    <ion-input type="text" formControlName="tipo_contrato"></ion-input>
                   </ion-item> <br>
                   <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Gerencia donde labora:</strong></ion-label>
-                    <ion-input type="text" formControlName="gerenciaDondeLabora"></ion-input>
+                    <ion-input type="text" formControlName="gerencia_donde_labora"></ion-input>
                   </ion-item> <br>
                   <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Lugar de trabajo:</strong></ion-label>
-                    <ion-input type="text" formControlName="lugarTrabajo"></ion-input>
+                    <ion-input type="text" formControlName="lugar_trabajo"></ion-input>
                   </ion-item><br>
                   <ion-label><strong style="font-family: auto; font-size: small;">Adjuntar sólo imagen jpg o png:</strong></ion-label>
                   <ion-item class="formulario">
@@ -91,7 +91,7 @@
                   </ion-item> <br>
                   <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Detalle eventualidad:</strong></ion-label>
-                    <ion-textarea type="text" formControlName="detallePeticion"></ion-textarea>
+                    <ion-textarea type="text" formControlName="detalle_peticion"></ion-textarea>
                   </ion-item><br>
                  <ion-label><strong>Al dar enviar acepta los términos anteriores de tratamiento de datos</strong></ion-label>
                 <ion-button  type="submit" expand="block" color="secondary" [disabled]="!copasst.valid || fileCertificado===undefined">Enviar</ion-button>

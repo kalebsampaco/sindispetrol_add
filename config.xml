@@ -1,16 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.sindispetrol" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.ionic.sindispetrol" version="0.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Sindispetrol</name>
     <description>Aplicación para los procesos internos de sindispetrol,  by gewwtech.</description>
     <author email="contacto@gewwtech.com" href="https://gewwtech.com/">Equipo GewwTech</author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="*" subdomains="true" />
+    <access launch-external="yes" origin="http://*" />
+    <access launch-external="yes" origin="https://*" />
+    <allow-navigation href="https://api.sindispetrol.xyz/*" />
+    <allow-navigation href="https://api.sindispetrol.xyz/*" />
+    <allow-navigation href="*://*.facebook.com/*" />
+    <allow-navigation href="*://datos-jireth.gewwtech.com/*" />
     <allow-intent href="http://*/*" />
+    <allow-intent href="*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="InAppBrowserStatusBarStyle" value="lightcontent" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="22" />
     <preference name="BackupWebStorage" value="none" />
@@ -19,11 +27,11 @@
     <preference name="FadeSplashScreenDuration" value="1000" />
     <preference name="SplashScreen" value="screen" />
     <preference name="ShowSplashScreen" value="true" />
-    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="loadUrlTimeoutValue" value="700000" />
+    <preference name="loadUrlTimeoutValue" value="70000" />
     <preference name="orientation" value="portrait" />
     <platform name="android">
         <preference name="Scheme" value="http" />
