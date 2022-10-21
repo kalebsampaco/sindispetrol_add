@@ -8,7 +8,6 @@ import { DocumentsPageRoutingModule } from './documents-routing.module';
 
 import { DocumentsPage } from './documents.page';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { BrowserTab } from '@ionic-native/browser-tab/ngx';
 
 @NgModule({
   imports: [
@@ -18,6 +17,6 @@ import { BrowserTab } from '@ionic-native/browser-tab/ngx';
     DocumentsPageRoutingModule
   ],
   declarations: [DocumentsPage],
-  providers:[InAppBrowser, BrowserTab]
+  providers:[InAppBrowser]
 })
 export class DocumentsPageModule {}

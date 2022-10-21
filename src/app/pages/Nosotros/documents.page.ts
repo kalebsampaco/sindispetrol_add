@@ -2,10 +2,10 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-//import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+//import { InAppBrowser,  InAppBrowserObject, InAppBrowserOptions} from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions}from '@ionic-native/in-app-browser/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { BrowserTab } from '@ionic-native/browser-tab/ngx';
+//import { BrowserTab } from '@ionic-native/browser-tab/ngx';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class DocumentsPage implements OnInit {
 
   options: InAppBrowserOptions = {
-    location : 'yes',//Or 'no'
+    location : 'no',//Or 'no'
     hidden : 'yes', //Or  'yes'
     clearcache : 'yes',
     clearsessioncache : 'yes',
@@ -32,8 +32,7 @@ export class DocumentsPage implements OnInit {
     presentationstyle : 'pagesheet',//iOS only
     fullscreen : 'yes',//Windows only
 };
-  target = '_blank';
-  option = 'location=yes';
+  target = '_system';
 
   slideOpts = {
     initialSlide: 0,
@@ -56,12 +55,11 @@ export class DocumentsPage implements OnInit {
   browser: InAppBrowserObject;
 
   constructor(
-    private router: Router,
     private modalCtrl: ModalController,
     private navCtrl: NavController,
     private iab: InAppBrowser,
     public splashScreen: SplashScreen,
-    private bTab: BrowserTab
+    //private bTab: BrowserTab
     ) { }
 
   ngOnInit() {
@@ -71,21 +69,35 @@ export class DocumentsPage implements OnInit {
     //window.open('https://www.facebook.com/SINDISPETROL', this.target, this.option);
 
     this.browser = this.iab.create('https://www.facebook.com/SINDISPETROL', this.target, this.options);
-    this.browser.show();
-
+    this.browser.on('loadstop').subscribe(event => {
+      const navUrl = event.url;
+      if (navUrl.includes('success')) {
+       this.browser.close();
+      }
+    });
   }
 
   nuevosEstatutos() {
     //window.open('http://datos-jireth.gewwtech.com/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL.pdf', this.target, this.option);
     // eslint-disable-next-line max-len
     this.browser = this.iab.create('http://datos-jireth.gewwtech.com/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL.pdf', this.target, this.options);
-    this.browser.show();
+    /* this.browser.on('loadstop').subscribe(event => {
+      const navUrl = event.url;
+      if (navUrl.includes('success')) {
+       this.browser.close();
+      }
+    }); */
   }
 
   convencionColectiva() {
     //window.open('http://datos-jireth.gewwtech.com/Convencion_colectiva.pdf', this.target, this.option);
     this.browser = this.iab.create('http://datos-jireth.gewwtech.com/Convencion_colectiva.pdf', this.target, this.options);
-    this.browser.show();
+    this.browser.on('loadstop').subscribe(event => {
+      const navUrl = event.url;
+      if (navUrl.includes('success')) {
+       this.browser.close();
+      }
+    });
   }
   async goToUploadDocuments() {
       /* const modal = await this.modalCtrl.create({
