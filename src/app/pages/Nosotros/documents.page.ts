@@ -1,12 +1,12 @@
 //import { UploadDocumentPage } from '../upload-document_no/upload-document.page';
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 //import { InAppBrowser,  InAppBrowserObject, InAppBrowserOptions} from '@awesome-cordova-plugins/in-app-browser/ngx';
-import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions}from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 //import { BrowserTab } from '@ionic-native/browser-tab/ngx';
 import Swal from 'sweetalert2';
+import { GlobalServiceService } from '../services/global-service.service';
 
 @Component({
   selector: 'app-documents',
@@ -59,10 +59,37 @@ export class DocumentsPage implements OnInit {
     private navCtrl: NavController,
     private iab: InAppBrowser,
     public splashScreen: SplashScreen,
+    private gblService: GlobalServiceService,
     //private bTab: BrowserTab
     ) { }
 
   ngOnInit() {
+    this.getJunta();
+  }
+
+  getJunta(){
+    this.gblService.getService('juntas').subscribe(
+      (res: any) => {
+          res.forEach((el:any) => {
+            el.url.url = 'https://api.sindispetrol.xyz'+el.url.url;
+          });
+          console.log(res);
+          this.juntaDirectiva = res.sort(function (a, b) {
+              if (a.id > b.id) {
+                return 1;
+              }
+              if (a.id < b.id) {
+                return -1;
+              }
+              // a must be equal to b
+              return 0;
+          });
+      },
+      (error: any) => {
+
+        console.log('error consultando meta', error);
+      }
+    );
   }
 
   redFacebook() {
@@ -80,7 +107,7 @@ export class DocumentsPage implements OnInit {
   nuevosEstatutos() {
     //window.open('http://datos-jireth.gewwtech.com/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL.pdf', this.target, this.option);
     // eslint-disable-next-line max-len
-    this.browser = this.iab.create('http://datos-jireth.gewwtech.com/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL.pdf', this.target, this.options);
+    this.browser = this.iab.create('https://api.sindispetrol.xyz/uploads/NUEVOS_ESTATUTOS_INTERNOS_DE_SINDISPETROL_compressed_9c9a9b1bbf.pdf', this.target, this.options);
     /* this.browser.on('loadstop').subscribe(event => {
       const navUrl = event.url;
       if (navUrl.includes('success')) {
@@ -91,7 +118,7 @@ export class DocumentsPage implements OnInit {
 
   convencionColectiva() {
     //window.open('http://datos-jireth.gewwtech.com/Convencion_colectiva.pdf', this.target, this.option);
-    this.browser = this.iab.create('http://datos-jireth.gewwtech.com/Convencion_colectiva.pdf', this.target, this.options);
+    this.browser = this.iab.create('https://api.sindispetrol.xyz/uploads/CONVENCION_COLECTIVA_2023_2026_CAPITULO_SINDISPETROL_529a065569.pdf', this.target, this.options);
     this.browser.on('loadstop').subscribe(event => {
       const navUrl = event.url;
       if (navUrl.includes('success')) {

@@ -12,7 +12,7 @@ export class GlobalServiceService {
   constructor(private _http: HttpClient) { }
 
   postService(path: any, body: any) {
-    return this._http.post(`${this.API}${path}`, {data:body});
+    return this._http.post(`${this.API}${path}`, body);
   }
 
   postServiceCopasst(path: any, body: any) {

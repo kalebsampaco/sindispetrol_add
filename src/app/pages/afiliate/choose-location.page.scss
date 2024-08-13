@@ -10,6 +10,16 @@ ion-toolbar {
 }
 .sindispetrol {
     --color: white !important;
+    font-size: 20px !important;
+}
+
+@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
+  :host .time-body{
+    height: 50px !important;
+    width: 120px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 }
 
 .signature-pad {

@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,14 +8,14 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  
+
   Subdirectivas = [ {sub:'Meta', page:'meta'}, {sub:'Bogotá', page:'bogota'}, {sub:'Cupiagua', page:'cipiagua'}, {sub:'Bucaramanga', page:'bucaramanga'},
     {sub:'Cicuco', page:'cicuco'}, {sub:'Barrancabermeja', page:'barrancabermeja'}, {sub:'Occidente', page:'occidente'}];
 
   constructor(private route: Router, private modalController: ModalController) { }
 
   ngOnInit() {
-    console.log(this.Subdirectivas)
+    // console.log(this.Subdirectivas)
   }
 
 
@@ -49,6 +49,6 @@ export class HomePage implements OnInit {
     this.route.navigate([`/${page}`]);
   }
 
-  
+
 
 }

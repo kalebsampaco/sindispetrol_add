@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { GlobalServiceService } from '../services/global-service.service';
-import Swal from 'sweetalert2';
-import * as $ from 'jquery';
-import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions}from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { NavController } from '@ionic/angular';
+import Swal from 'sweetalert2';
+import { GlobalServiceService } from '../services/global-service.service';
 @Component({
   selector: 'app-barrancabermeja',
   templateUrl: './barrancabermeja.page.html',
@@ -39,14 +38,10 @@ export class BarrancabermejaPage implements OnInit {
 
   ngOnInit() {
 
-     this.gblService.getService('barrancas?populate=imagen').subscribe(
+     this.gblService.getService('barrancas').subscribe(
       (res: any) => {
-
-          console.log(res);
-          this.url = 'https://'+res.data[0].attributes.url;
-          this.image = 'https://api.sindispetrol.xyz'+res.data[0].attributes.imagen.data[0].attributes.url;
-          console.log(this.url);
-          console.log(this.image);
+          this.url = 'https://'+res[0].url;
+          this.image = 'https://api.sindispetrol.xyz'+res[0].imagen.url;
 
       },
       (error: any) => {

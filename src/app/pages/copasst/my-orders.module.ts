@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+import { YouTubePlayerModule } from "@angular/youtube-player";
 import { MyOrdersPageRoutingModule } from './my-orders-routing.module';
-
 import { MyOrdersPage } from './my-orders.page';
 
 
@@ -15,7 +15,8 @@ import { MyOrdersPage } from './my-orders.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    MyOrdersPageRoutingModule
+    MyOrdersPageRoutingModule,
+    YouTubePlayerModule
   ],
   declarations: [MyOrdersPage]
 })

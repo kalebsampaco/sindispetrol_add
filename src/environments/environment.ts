@@ -6,7 +6,8 @@
 export const environment = {
   production: false,
   ApiKeyGoogleMaps:'AIzaSyAbywG6wPl-oMgKcwnJwM6j0vZVLDjuYQY',
-  API:'https://api.sindispetrol.xyz/api/',
+  API:'https://api.sindispetrol.xyz/',
+  // API:'https://api.sindispetrol.xyz/api/',
 
 };
 /*

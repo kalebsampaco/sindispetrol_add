@@ -1,5 +1,8 @@
 ionic serve -l  ---> debug con vista de android y apple
+npm i -g native-run
 
+-----abrir android studio-----
+ionic cordova run android
 ionic build
 
 ionic cordova prepare android
@@ -8,7 +11,9 @@ ionic cordova build --release android
 
 cd platforms/android/
 
-./gradlew bundleRelease
+./gradle bundleRelease
+
+
 
 cd app/build/outputs/bundle/release/
 

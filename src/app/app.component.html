@@ -31,13 +31,22 @@
                 </ion-list>
 
                 <div class="logo_flex">
-                    <ion-icon name="logo-facebook" href="" ></ion-icon>
+                    <ion-icon name="logo-facebook" (click)="redFacebook()"></ion-icon>
                     <ion-icon name="logo-instagram" href=""></ion-icon>
                     <ion-icon name="logo-twitter" href=""></ion-icon>
-                </div>
+                  </div>
+                  <br>
+                  <a class="btnP" (click)="paginaWeb()">
+                          Política de tratamiento de datos
+                  </a>
+                  <br>
 
-            </ion-content>
-        </ion-menu>
+                </ion-content>
+                <a class="btnP" (click)="desarrollado()">
+                        Desarrollado por &#64;kalebsampaco.
+                </a>
+                <ion-label class="title_lbl sc-ion-label-md-h sc-ion-label-md-s md hydrated">contacto: comunicaciones.sindispetrol&#64;gmail.com</ion-label>
+              </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-split-pane>
     <!-- <ion-router-outlet></ion-router-outlet> -->

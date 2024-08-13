@@ -9,8 +9,21 @@ ion-toolbar {
     --background: linear-gradient(#009544, #8CC63F);
 }
 .sindispetrol {
-    --color: white !important; 
+    --color: white !important;
+    font-size: 17px !important;
 }
+
+.youtube-player-wrapper {
+  border-radius: 0.375rem; /* esto es equivalente a rounded-md */
+  overflow: hidden;
+}
+
+.ytp-button:not([aria-disabled=true]):not([disabled]):not([aria-hidden=true]){
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
 
 ion-slides{
         margin: 15px;
@@ -29,7 +42,7 @@ ion-slides{
     width: 100%;
     height: auto;
     padding: 0px;
-    
+
     background-image: url("../../../assets/imgs/fondocopasst.png");
     background-repeat: no-repeat;
 
@@ -39,8 +52,15 @@ ion-slides{
         padding-top: 30px; /* IE6 workaround*/
         height: 0;
         overflow: hidden;
+        max-width: 100%;
+        background: #000;
+        :not(.ytp-mweb-player) .ytp-endscreen-next{
+           width: 60px;
+          height: 60px;
+          cursor: pointer;
         }
-        
+      }
+
         .video-responsive iframe,
         .video-responsive object,
         .video-responsive embed {
@@ -50,13 +70,14 @@ ion-slides{
         width: 100%;
         height: 100%;
         }
-        
+
+
     .extra_header {
         background: url('../../../assets/imgs/fondolaboral_1_2.png') no-repeat center center fixed;
         padding: 1px;
         position: relative;
 
-    
+
 
         .flex_div {
             display: flex;
@@ -65,7 +86,7 @@ ion-slides{
             .logo_text {
                 font-size: 20px;
                 font-family: 'bold';
-        
+
                 span{
                     font-family: 'bold';
                     color: var(--ion-color-primary);
@@ -124,11 +145,11 @@ ion-slides{
                 margin: 16px;
                 border-radius: 10px;
                 font-size: 10px;
-        
+
                 img {
                     width: 50px;
                 }
-        
+
                 ion-label {
                     text-align: center;
                     font-family: 'semi-bold';
@@ -152,7 +173,7 @@ ion-slides{
             text-transform: uppercase;
             padding: 0px 20px;
         }
-        
+
         ion-slide{
             margin: 15px;
             border: 1px solid green;
@@ -166,19 +187,19 @@ ion-slides{
             display: flex;
             width: 100%;
             overflow-y: scroll;
-            
+
             .inner_slide {
                 display: flex;
                 flex-direction: column;
                 align-items: justify;
                 margin-right: 10px;
-    
+
                 img {
                     width: 100px !important;
                     min-width: 100px;
                     margin-bottom: -5px;
                 }
-    
+
                 ion-label {
                     margin-top: 1px;
                     margin-bottom: 10px;
@@ -220,5 +241,5 @@ ion-slides{
                 }
             }
         }
-    }    
+    }
 }

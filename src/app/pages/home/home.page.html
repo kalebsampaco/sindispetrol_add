@@ -4,12 +4,12 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title style="padding: 0px; color: white; margin-left:5px">Inicio</ion-title>
-        <ion-button class="sindispetrol" slot="end" size="small" fill="clear">
+        <ion-button class="sindispetrol" slot="end" size="medium" fill="clear">
             <ion-label  name=""></ion-label>
             Sindispetrol
         </ion-button>
     </ion-toolbar>
-</ion-header> 
+</ion-header>
 
 <ion-content>
     <div class="main_content_div">
@@ -18,11 +18,11 @@
             <div>
                 <img src="assets/imgs/logo.png"  class="ml-3">
             </div>
-           
+
         </div>
 
         <div  class="content_div" >
-    
+
 
             <div class="grid_box">
                 <div class="box_div" (click)="goToNosotros()">
@@ -33,7 +33,7 @@
                     <img src="assets/imgs/admin.png">
                     <ion-label>Consultas Laborales</ion-label>
                 </div>
-            </div> 
+            </div>
             <div class="grid_box">
                 <div class="box_div" (click)="goToJuridica()">
                     <img src="assets/imgs/juris.png">
@@ -43,7 +43,7 @@
                     <img src="assets/imgs/copasst.png">
                     <ion-label><strong>Copasst</strong></ion-label>
                 </div>
-            </div> 
+            </div>
             <div class="grid_box">
                 <div class="box_div" (click)="goToBeneficios()">
                     <img src="assets/imgs/beneficios.png">
@@ -53,7 +53,7 @@
                     <img src="assets/imgs/afiliate.png">
                     <ion-label><strong>Afíliate</strong></ion-label>
                 </div>
-            </div> 
+            </div>
 
             <ion-label class="title_lbl"><strong>Subdirectivas</strong></ion-label>
             <div class="flex_slider mb-3">
@@ -61,13 +61,13 @@
                     <div (click)="redirigir(item.page)">
                         <img src="assets/imgs/Copia de sedes.png">
                         <ion-label class="mb-3">{{item.sub}}</ion-label>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
         </div>
 
-        
+
 
     </div>
 </ion-content>

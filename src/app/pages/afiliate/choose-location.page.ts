@@ -5,19 +5,16 @@
 /* eslint-disable @angular-eslint/use-lifecycle-interface */
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/type-annotation-spacing */
-import { NavController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessageService } from '../services/message.service';
-import Swal from 'sweetalert2';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { Columns, Img, PdfMakeWrapper, Txt } from 'pdfmake-wrapper';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import SignaturePad from 'signature_pad';
+import Swal from 'sweetalert2';
 
 
 // import the pdfmake library
-import * as pdfMake from 'pdfmake/build/pdfmake';
 import { GlobalServiceService } from '../services/global-service.service';
 
 /* declare var require: any
@@ -109,16 +106,6 @@ export class ChooseLocationPage implements OnInit {
   clear() {
     this.signaturePad.clear();
   }
-
-
-
-
- /*
-  downloadPdf() {
-    const pdfUrl = 'assets/imgs/NUEVO  FORMATO DE AFILIACIONES.pdf';
-    const pdfName = 'NUEVO  FORMATO DE AFILIACIONES';
-    FileSaver.saveAs(pdfUrl, pdfName);
-  } */
 
 
 
@@ -335,18 +322,18 @@ export class ChooseLocationPage implements OnInit {
                   subdirectiva:'juntadirectiva.sindispetrol@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombre_completo: this.nombreCompleto,
+                  nombreCompleto: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudad_cedula: this.ciudadCedula,
-                  nombre_empresa: this.nombreEmpresa,
+                  ciudadCedula: this.ciudadCedula,
+                  nombreEmpresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf_64:blob,
+                  pdf64:blob,
                 }
-                this.gblService.postService('afiliacions', data).subscribe(() => {
+                this.gblService.postService('afiliaciones', data).subscribe(() => {
                   Swal.fire({
                           title: 'Archivo enviado',
                           text: 'Archivo enviado correctamente',
@@ -364,19 +351,19 @@ export class ChooseLocationPage implements OnInit {
                   subdirectiva:'sindispetrol1@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombre_completo: this.nombreCompleto,
+                  nombreCompleto: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudad_cedula: this.ciudadCedula,
-                  nombre_empresa: this.nombreEmpresa,
+                  ciudadCedula: this.ciudadCedula,
+                  nombreEmpresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf_64:blob,
+                  pdf64:blob,
                 }
 
-                this.gblService.postService('afiliacions', data).subscribe(() => {
+                this.gblService.postService('afiliaciones', data).subscribe(() => {
                   Swal.fire({
                           title: 'Archivo enviado',
                           text: 'Archivo enviado correctamente',
@@ -393,19 +380,19 @@ export class ChooseLocationPage implements OnInit {
                   subdirectiva:'sindicasanarecupiagua@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombre_completo: this.nombreCompleto,
+                  nombreCompleto: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudad_cedula: this.ciudadCedula,
-                  nombre_empresa: this.nombreEmpresa,
+                  ciudadCedula: this.ciudadCedula,
+                  nombreEmpresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf_64:blob,
+                  pdf64:blob,
                 }
 
-                this.gblService.postService('afiliacions', data).subscribe(() => {
+                this.gblService.postService('afiliaciones', data).subscribe(() => {
                   Swal.fire({
                           title: 'Archivo enviado',
                           text: 'Archivo enviado correctamente',
@@ -422,19 +409,19 @@ export class ChooseLocationPage implements OnInit {
                   subdirectiva:'sindispetrolbucaramanga2021@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombre_completo: this.nombreCompleto,
+                  nombreCompleto: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudad_cedula: this.ciudadCedula,
-                  nombre_empresa: this.nombreEmpresa,
+                  ciudadCedula: this.ciudadCedula,
+                  nombreEmpresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf_64:blob,
+                  pdf64:blob,
                 }
 
-                this.gblService.postService('afiliacions', data).subscribe(() => {
+                this.gblService.postService('afiliaciones', data).subscribe(() => {
                   Swal.fire({
                           title: 'Archivo enviado',
                           text: 'Archivo enviado correctamente',
@@ -451,19 +438,19 @@ export class ChooseLocationPage implements OnInit {
                   subdirectiva:'sindispetrolsubdirectivacicuco@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombre_completo: this.nombreCompleto,
+                  nombreCompleto: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudad_cedula: this.ciudadCedula,
-                  nombre_empresa: this.nombreEmpresa,
+                  ciudadCedula: this.ciudadCedula,
+                  nombreEmpresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf_64:blob,
+                  pdf64:blob,
                 }
 
-                this.gblService.postService('afiliacions', data).subscribe(() => {
+                this.gblService.postService('afiliaciones', data).subscribe(() => {
                   Swal.fire({
                           title: 'Archivo enviado',
                           text: 'Archivo enviado correctamente',
@@ -480,19 +467,19 @@ export class ChooseLocationPage implements OnInit {
                   subdirectiva:'Sindispetrolductos@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombre_completo: this.nombreCompleto,
+                  nombreCompleto: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudad_cedula: this.ciudadCedula,
-                  nombre_empresa: this.nombreEmpresa,
+                  ciudadCedula: this.ciudadCedula,
+                  nombreEmpresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf_64:blob,
+                  pdf64:blob,
                 }
 
-                this.gblService.postService('afiliacions', data).subscribe(() => {
+                this.gblService.postService('afiliaciones', data).subscribe(() => {
                   Swal.fire({
                           title: 'Archivo enviado',
                           text: 'Archivo enviado correctamente',
@@ -509,19 +496,19 @@ export class ChooseLocationPage implements OnInit {
                   subdirectiva:'trabajadoressindispetrol@gmail.com',
                   ciudad: this.ciudad,
                   fecha: this.fecha,
-                  nombre_completo: this.nombreCompleto,
+                  nombreCompleto: this.nombreCompleto,
                   cedula: this.cedula,
-                  ciudad_cedula: this.ciudadCedula,
-                  nombre_empresa: this.nombreEmpresa,
+                  ciudadCedula: this.ciudadCedula,
+                  nombreEmpresa: this.nombreEmpresa,
                   cargo:this.cargo,
                   direccion:this.direccion,
                   barrio:this.barrio,
                   email:this.email,
                   celular:this.celular,
-                  pdf_64:blob,
+                  pdf64:blob,
                 }
 
-                this.gblService.postService('afiliacions', data).subscribe(() => {
+                this.gblService.postService('afiliaciones', data).subscribe(() => {
                   Swal.fire({
                           title: 'Archivo enviado',
                           text: 'Archivo enviado correctamente',

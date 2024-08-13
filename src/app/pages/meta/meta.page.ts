@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { GlobalServiceService } from '../services/global-service.service';
-import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions}from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { NavController } from '@ionic/angular';
 import Swal from 'sweetalert2';
-import * as $ from 'jquery';
+import { GlobalServiceService } from '../services/global-service.service';
 
 @Component({
   selector: 'app-meta',
@@ -40,14 +39,10 @@ export class MetaPage implements OnInit {
     public splashScreen: SplashScreen) { }
 
   async ngOnInit() {
-    this.gblService.getService('metas?populate=imagen').subscribe(
+    this.gblService.getService('metas').subscribe(
       (res: any) => {
-
-          console.log(res);
-          this.url = 'http://'+res.data[0].attributes.url;
-          this.image = 'https://api.sindispetrol.xyz'+res.data[0].attributes.imagen.data[0].attributes.url;
-          console.log(this.url);
-          console.log(this.image);
+          this.url = 'http://'+res[0].url;
+          this.image = 'https://api.sindispetrol.xyz'+res[0].imagen.url;
       },
       (error: any) => {
 

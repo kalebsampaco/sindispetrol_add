@@ -9,7 +9,8 @@ ion-toolbar {
     --background: linear-gradient(#009544, #8CC63F);
 }
 .sindispetrol {
-    --color: white !important; 
+    --color: white !important;
+    font-size: 17px !important;
 }
 
 ion-content{
@@ -19,12 +20,12 @@ ion-content{
     width: 100%;
     height: auto;
     padding: 0px;
-    
+
     background-image: url("../../../assets/imgs/fondolaboral_1_2.png");
     background-repeat: no-repeat;
     background-color: whitesmoke;
 
-    
+
 
     .extra_header_laboral {
         background: url('../../../assets/imgs/homeimg.png') no-repeat center center fixed;
@@ -51,9 +52,9 @@ ion-content{
     ion-item {
         margin: auto;
         background-color: green ;
-        
+
     }
-    
+
     ion-label {
         border: green;
         border-radius: 5px;

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { GlobalServiceService } from '../services/global-service.service';
-import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import Swal from 'sweetalert2';
+import { GlobalServiceService } from '../services/global-service.service';
 @Component({
   selector: 'app-my-orders',
   templateUrl: './my-orders.page.html',
@@ -12,6 +12,8 @@ import * as $ from 'jquery';
 })
 export class MyOrdersPage implements OnInit {
   public copasst: FormGroup;
+  videoHeight: number = 315;
+  videoWidth: number = 560;
   tabID = 'new';
   fileCertificado: any;
   slideOpts = {
@@ -19,6 +21,7 @@ export class MyOrdersPage implements OnInit {
     speed: 400,
     watchSlidesProgress: true,
   };
+  fileName: any;
 
   constructor(private router: Router,
     public formBuilder: FormBuilder,
@@ -26,16 +29,20 @@ export class MyOrdersPage implements OnInit {
     ) {
     this.copasst = this.formBuilder.group({
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      nombre_completo: ['', Validators.required],
+      nombreCompleto: ['', Validators.required],
       empresa: ['', Validators.required],
-      tipo_contrato: ['', Validators.required],
-      gerencia_donde_labora: ['', Validators.required],
-      lugar_trabajo: ['', Validators.required],
-      detalle_peticion: ['', Validators.required],
+      tipoContrato: ['', Validators.required],
+      gerenciaDondeLabora: ['', Validators.required],
+      lugarTrabajo: ['', Validators.required],
+      detallePeticion: ['', Validators.required],
     });
   }
 
   ngOnInit() {
+    const tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
   }
 
   incomingfileCertificado(ev: any) {
@@ -52,58 +59,21 @@ export class MyOrdersPage implements OnInit {
         return;
       }else {
         this.fileCertificado = ev.target.files[0];
-        console.log(this.fileCertificado);
       }
 
     }
 
   }
 
-  /* SubirDocumentos() {
-    let data = new FormData();
-    data.append('file', this.fileCarta);
-    data.append('file', this.fileCertificado);
-    data.append('idLoan', this.UltimoLoanId)
-    this.apiService.post('loans/upload-support-files', data).subscribe(
-      (res: any) => {
-        if (res.status) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Exito',
-            text: 'Archivos subidos con éxito.',
-          });
-          this.file = null;
-          $("#file1").val('');
-          $("#file2").val('');
-          this.primero = false;
-          this.segundo = false;
-          this.tercero = false;
-          this.cuarto = true;
-          this.quinto = false;
-          this.sexto = false;
-        }
-      },
-      (error: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ha ocurrido un error.',
-          timer: 2000,
-        });
-        console.log('error enviendo los documentos', error);
-      }
-    );
-  } */
-
    logForm(){
     const data = new FormData();
     const json = JSON.stringify(this.copasst.value);
+    console.log(json)
     /* const blob = new Blob([json], {
       type: 'application/json'
     }); */
-    console.log(json);
     data.append('data', json);
-    data.append('files.imagen', this.fileCertificado);
+    data.append('files.imagen', this.fileCertificado, this.fileCertificado.name);
     console.log(data.get('headers'));
     this.gblService.postServiceCopasst('copassts', data).subscribe(
       (res: any) => {

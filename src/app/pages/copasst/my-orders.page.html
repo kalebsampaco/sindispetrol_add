@@ -20,6 +20,16 @@
     <div class="main_content_div">
 
         <div class="extra_header">
+          <!-- <div class="youtube-player-wrapper">
+            <youtube-player
+                videoId="https://www.youtube.com/embed/_klSsRd41Fs"
+                suggestedQuality="highres"
+                    [height]="videoHeight"
+                    [width]="videoWidth"
+                    [startSeconds]="4"
+                    [endSeconds]="8">
+            </youtube-player>
+        </div> -->
             <div class="video-responsive">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/_klSsRd41Fs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
@@ -28,7 +38,7 @@
         <!-- <ion-label class="bold_lbl">Nosotros</ion-label> -->
         <ion-slides class="slides" pager="true" [options]="slideOpts">
             <ion-slide>
-                <div class="ion-text-justify" style="padding: 15px;">
+                <div class="ion-text-justify" style="padding: 15px; color:black">
                   SINDISPETROL, en cumplimiento de la ley de protección de datos ley 1581 de2021, el decreto 1377 de 2013 y nuestra política de protección de datos,
                   le imforma que los datos personales que usted nos suministre, serán tratados con seguridad físicos y técnica por SINDISPETROL, con el fin de protegerlas de terceros que no tengan autorización de obternerlas.
                   El responsable del tratamiento de sus datos personales es SINDISPETROL; los datos personales se recolectarán a través de diferentes canales de comunicación y serán usados para: 1) Acceder de manera gratuita a sus datos personales,
@@ -38,7 +48,7 @@
                 </div>
             </ion-slide>
             <ion-slide>
-                <div class="ion-text-justify" style="padding: 14px;">
+                <div class="ion-text-justify" style="padding: 14px; color:black">
                    siguiendo los procedimientos establecidos más adelante, 3) solicitar y obtener prueba de la autorización concedida para el tratamiento de sus datos personales,
                    excepto en el caso en que ella se presuma por haberse usado mecanismos alternos de comunicación,como lo preveé el artículo 10 de decreto 1377 de 2013, 4) obtener información sobre el uso de que se ha dado a su información personal,
                    5) acudir ante las autoridades, especialmente ante la Superintendencia delegada para la Protección de Datos Personales de la SIC, con el fin de solicitar y exigir el amparo de los derechos que le confieren a las leyes,
@@ -46,7 +56,7 @@
                  </div>
             </ion-slide>
             <ion-slide>
-                <div class="ion-text-justify" style="padding: 14px;">
+                <div class="ion-text-justify" style="padding: 14px; color:black">
                   6) revocar, en cualquier momento, la autorización para el tratamiento de sus datos personales, modificarla o condicionarla.
                   <br>
                   De acuerdo al AVISO DE PRIVACIDAD anterior, autorizo de manera previa, explícita e inequívoca a SINDISPETROL, para el tratamiento de los datos personales suministrados por mi persona dentro de las finalidades legales, contractuales,
@@ -61,7 +71,7 @@
             <form [formGroup]="copasst" (ngSubmit)="logForm()">
                 <ion-item class="formulario">
                   <ion-label><strong style="font-family: auto; font-size: small;">Nombre Completo:</strong></ion-label>
-                  <ion-input type="text" formControlName="nombre_completo"></ion-input>
+                  <ion-input type="text" formControlName="nombreCompleto"></ion-input>
                 </ion-item> <br>
                 <ion-item class="formulario">
                   <ion-label><strong style="font-family: auto; font-size: small;">Empresa:</strong></ion-label>
@@ -69,15 +79,15 @@
                 </ion-item> <br>
                 <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Tipo de contrato:</strong></ion-label>
-                    <ion-input type="text" formControlName="tipo_contrato"></ion-input>
+                    <ion-input type="text" formControlName="tipoContrato"></ion-input>
                   </ion-item> <br>
                   <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Gerencia donde labora:</strong></ion-label>
-                    <ion-input type="text" formControlName="gerencia_donde_labora"></ion-input>
+                    <ion-input type="text" formControlName="gerenciaDondeLabora"></ion-input>
                   </ion-item> <br>
                   <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Lugar de trabajo:</strong></ion-label>
-                    <ion-input type="text" formControlName="lugar_trabajo"></ion-input>
+                    <ion-input type="text" formControlName="lugarTrabajo"></ion-input>
                   </ion-item><br>
                   <ion-label><strong style="font-family: auto; font-size: small;">Adjuntar sólo imagen jpg o png:</strong></ion-label>
                   <ion-item class="formulario">
@@ -86,12 +96,12 @@
                       accept="image/png,image/jpeg"
                       id="file"
                       name="file"
-                      style="font-size: small;"
+                      style="font-size: 20px; text-wrap: balance; width: 100%"
                       (change)="incomingfileCertificado($event)">
                   </ion-item> <br>
                   <ion-item class="formulario">
                     <ion-label><strong style="font-family: auto; font-size: small;">Detalle eventualidad:</strong></ion-label>
-                    <ion-textarea type="text" formControlName="detalle_peticion"></ion-textarea>
+                    <ion-textarea type="text" formControlName="detallePeticion"></ion-textarea>
                   </ion-item><br>
                  <ion-label><strong>Al dar enviar acepta los términos anteriores de tratamiento de datos</strong></ion-label>
                 <ion-button  type="submit" expand="block" color="secondary" [disabled]="!copasst.valid || fileCertificado===undefined">Enviar</ion-button>

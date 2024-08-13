@@ -48,7 +48,7 @@
             <ion-label><strong style="font-family: auto; font-size: small;">Fecha de afiliación:</strong></ion-label>
             <ion-item class="formulario">
 
-                <ion-datetime locale="co-CO" name="fecha" [(ngModel)]="fecha" displayFormat="MMM DD, YYYY"></ion-datetime>
+                <ion-datetime presentation="date" preferWheel="true" locale="co-CO" name="fecha" [(ngModel)]="fecha" displayFormat="MMM DD, YYYY"></ion-datetime>
 
             </ion-item><br>
             <ion-item class="formulario">
@@ -81,7 +81,13 @@
             </ion-item><br>
             <ion-item class="formulario">
                 <ion-label><strong style="font-family: auto; font-size: small;">Email:</strong></ion-label>
-                <ion-input name="email" [(ngModel)]="email"></ion-input>
+                <ion-input name="email"
+                          [(ngModel)]="email"
+                          required
+                          email
+                          #emailInput="ngModel"
+                          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+                </ion-input>
             </ion-item><br>
             <ion-item class="formulario">
                 <ion-label><strong style="font-family: auto; font-size: small;">Celular:</strong></ion-label>

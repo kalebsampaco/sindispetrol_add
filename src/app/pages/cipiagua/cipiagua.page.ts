@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { GlobalServiceService } from '../services/global-service.service';
-import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions}from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser, InAppBrowserObject, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { NavController } from '@ionic/angular';
 import Swal from 'sweetalert2';
-import * as $ from 'jquery';
+import { GlobalServiceService } from '../services/global-service.service';
 
 @Component({
   selector: 'app-cipiagua',
@@ -40,14 +39,10 @@ export class CipiaguaPage implements OnInit {
     public splashScreen: SplashScreen) { }
 
   async ngOnInit() {
-    this.gblService.getService('cipiaguas?populate=imagen').subscribe(
+    this.gblService.getService('cipiaguas').subscribe(
       (res: any) => {
-
-          console.log(res);
-          this.url = 'https://'+res.data[0].attributes.url;
-          this.image = 'https://api.sindispetrol.xyz'+res.data[0].attributes.imagen.data[0].attributes.url;
-          console.log(this.url);
-          console.log(this.image);
+          this.url = 'https://'+res[0].url;
+          this.image = 'https://api.sindispetrol.xyz'+res[0].imagen[0].url;
       },
       (error: any) => {
 
