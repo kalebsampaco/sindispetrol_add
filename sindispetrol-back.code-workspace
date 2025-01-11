@@ -2,9 +2,9 @@
 	"folders": [
 		{
 			"path": ".."
-		},
-		{
-			"path": "../../flutter-templates"
 		}
-	]
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true
+	}
 }

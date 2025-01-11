@@ -11,7 +11,7 @@ ionic cordova build --release android
 
 cd platforms/android/
 
-./gradle bundleRelease
+./gradle bundleRelease --se puede quitar el ./
 
 
 

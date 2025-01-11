@@ -7,6 +7,7 @@ export const environment = {
   production: false,
   ApiKeyGoogleMaps:'AIzaSyAbywG6wPl-oMgKcwnJwM6j0vZVLDjuYQY',
   API:'https://api.sindispetrol.xyz/',
+  // API: 'http://localhost:1337/',
   // API:'https://api.sindispetrol.xyz/api/',
 
 };

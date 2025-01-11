@@ -39,13 +39,16 @@ export class ChatPage implements OnInit {
     },
     {
       cod : 6,
-      name : 'Occidente'
+      name : 'Caribe Norte'
     },
     {
       cod : 7,
-      name : 'Barrancabermeja'
+      name : 'Casabe'
     },
-
+    {
+      cod : 8,
+      name : 'SUT'
+    }
 
   ];
 

@@ -49,13 +49,16 @@ export class ChooseLocationPage implements OnInit {
     },
     {
       cod : 6,
-      name : 'Occidente'
+      name : 'Caribe Norte'
     },
     {
       cod : 7,
-      name : 'Barrancabermeja'
+      name : 'Casabe'
     },
-
+    {
+      cod : 8,
+      name : 'SUT'
+    }
 
   ];
 
@@ -461,7 +464,7 @@ export class ChooseLocationPage implements OnInit {
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected==='Occidente'){
+              }else if(this.subdirectivaSelected==='Caribe Norte'){
 
                   const data = {
                   subdirectiva:'Sindispetrolductos@gmail.com',
@@ -490,7 +493,7 @@ export class ChooseLocationPage implements OnInit {
                           confirmButtonText: 'OK',
                         });
                 });
-              }else if(this.subdirectivaSelected==='Barrancabermeja'){
+              }else if(this.subdirectivaSelected==='Casabe'  || this.subdirectivaSelected==='SUT'){
 
                   const data = {
                   subdirectiva:'trabajadoressindispetrol@gmail.com',

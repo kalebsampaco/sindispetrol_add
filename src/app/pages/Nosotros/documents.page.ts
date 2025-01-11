@@ -126,6 +126,27 @@ export class DocumentsPage implements OnInit {
       }
     });
   }
+
+  convencionSevicol(){
+    this.browser = this.iab.create('https://api.sindispetrol.xyz/uploads/CONVENCION_SINDISPETROL_SEVICOL_2024_51506e5b35.pdf', this.target, this.options);
+    this.browser.on('loadstop').subscribe(event => {
+      const navUrl = event.url;
+      if (navUrl.includes('success')) {
+       this.browser.close();
+      }
+    });
+  }
+
+  convencionAtlas(){
+    this.browser = this.iab.create('https://api.sindispetrol.xyz/uploads/CONVENCION_SINDISPETROL_ATLAS_2024_5e5e5755a7.pdf', this.target, this.options);
+    this.browser.on('loadstop').subscribe(event => {
+      const navUrl = event.url;
+      if (navUrl.includes('success')) {
+       this.browser.close();
+      }
+    });
+  }
+
   async goToUploadDocuments() {
       /* const modal = await this.modalCtrl.create({
         component: UploadDocumentPage,

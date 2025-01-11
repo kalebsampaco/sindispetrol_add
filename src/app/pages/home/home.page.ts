@@ -10,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 export class HomePage implements OnInit {
 
   Subdirectivas = [ {sub:'Meta', page:'meta'}, {sub:'Bogotá', page:'bogota'}, {sub:'Cupiagua', page:'cipiagua'}, {sub:'Bucaramanga', page:'bucaramanga'},
-    {sub:'Cicuco', page:'cicuco'}, {sub:'Barrancabermeja', page:'barrancabermeja'}, {sub:'Occidente', page:'occidente'}];
+    {sub:'Cicuco', page:'cicuco'}, {sub:'Casabe', page:'casabe'}, {sub:'Caribe Norte', page:'caribe-norte'}, {sub:'SUT', page:'sut'}];
 
   constructor(private route: Router, private modalController: ModalController) { }
 
